@@ -1,10 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>StepProjectCards</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="./style.css" />
+        <title>Step_project-Cards</title>
+    </head>
+    <body>
+        <video autoplay muted loop id="myVideo">
+            <source
+                src="./video/The Breathtaking Beauty of Nature _ HD.mp4"
+                type="video/mp4"
+            />
+        </video>
 
-</body>
+        <div class="container-fluid">
+            <nav class="navbar bg">
+                <div class="container-sm">
+                    <a class="navbar-brand">The one and only clinic</a>
+
+                    <!-- <button class="btn btn-light" type="submit">Sign up</button> -->
+                    <button
+                        type="button"
+                        class="btn btn-outline-light back"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                    >
+                        Launch demo modal
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <div class="container-md forms">
+            <div class="row g-4">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input
+                            class="form-control"
+                            id="floatingInputGrid"
+                            placeholder="Search by title or body text"
+                        />
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelectGrid">
+                            <option selected>Status</option>
+                            <option value="Open">Open</option>
+                            <option value="Done">Done</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelectGrid">
+                            <option selected>Urgency</option>
+                            <option value="High">High</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <div class=""> -->
+                <button type="button" class="col-sm btn btn-outline-light s">
+                    Search
+                </button>
+                <!-- </div> -->
+            </div>
+        </div>
+        <div class="container-md">
+            <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                Modal title
+                            </h5>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group input-group-sm mb-3">
+                                <span
+                                    class="input-group-text"
+                                    id="inputGroup-sizing-sm"
+                                    >name</span
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span
+                                    class="input-group-text"
+                                    id="inputGroup-sizing-sm"
+                                    >Last name</span
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span
+                                    class="input-group-text"
+                                    id="inputGroup-sizing-sm"
+                                    >Address</span
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span
+                                    class="input-group-text"
+                                    id="inputGroup-sizing-sm"
+                                    >Gender</span
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span
+                                    class="input-group-text"
+                                    id="inputGroup-sizing-sm"
+                                    >zip</span
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span
+                                    class="input-group-text"
+                                    id="inputGroup-sizing-sm"
+                                    >State</span
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span
+                                    class="input-group-text"
+                                    id="inputGroup-sizing-sm"
+                                    >Last visit</span
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                            <button type="button" class="btn btn-light">
+                                Save changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-sm center">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">
+                                    This is a longer card with supporting text
+                                    below as a natural lead-in to additional
+                                    content. This content is a little bit
+                                    longer.
+                                </p>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-light"
+                                >
+                                    Info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">
+                                    This is a longer card with supporting text
+                                    below as a natural lead-in to additional
+                                    content. This content is a little bit
+                                    longer.
+                                </p>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-light"
+                                >
+                                    Info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">
+                                    This is a longer card with supporting text
+                                    below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-light"
+                                >
+                                    Info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">
+                                    This is a longer card with supporting text
+                                    below as a natural lead-in to additional
+                                    content. This content is a little bit
+                                    longer.
+                                </p>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-light"
+                                >
+                                    Info
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="footer">
+            <h4 class="footer-text">the text of the footer</h4>
+        </section>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"
+        ></script>
+        <script type="module" src="./index.js"></script>
+    </body>
 </html>
