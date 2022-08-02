@@ -1,0 +1,1 @@
+import Card from '.././classes/class_card.js'
