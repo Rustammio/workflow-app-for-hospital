@@ -1,5 +1,7 @@
 export default class Visit{
-    constuctor(){
-        this.hello = "hello";
+    constuctor(descriptionVisit){
+        this.descriptionVisit = descriptionVisit;
+        this.visitor = visitor;
+        
     }
 }
