@@ -1,3 +1,3 @@
-import{getToken} from "./scripts/api/log_in.js";
+import{logIn} from "./scripts/api/log_in.js";
 const sign = document.querySelector('.sign')
-sign.addEventListener('click', getToken)
+sign.addEventListener('click', logIn)
