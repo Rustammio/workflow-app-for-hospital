@@ -80,3 +80,9 @@ export function cardsManage() {
 //         this.container.insertAdjacentHTML("afterbegin", card);
 //     }
 // }
+
+// class Api {
+//     static getrecurst(url){fetch(`${url}`)};
+//     static postrequest(url. body){fetch:}
+// }
+// Api.getrecurst(url)
