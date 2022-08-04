@@ -1,3 +1,5 @@
+import Visit from "../classes/visits/visit.js";
+
 export function cardsManage() {
     fetch("https://ajax.test-danit.com/api/v2/cards", {
         headers: {
@@ -6,30 +8,31 @@ export function cardsManage() {
         },
     })
         .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-            // let i = 1;
-            // const arrayOfCards = data.map((obj) => {
-            //     obj["cardId"] = i;
-            //     i++;
-            //     return obj;
-            // });
-            // console.log(arrayOfCards);
-
-            // await arrayOfCards.forEach(
-            //     ({ age, bp, description, doctor, title, weight, id }) => {
-            //         return new createCard(
-            //             age,
-            //             bp,
-            //             description,
-            //             doctor,
-            //             title,
-            //             weight,
-            //             id
-            //         ).render();
-            //         // console.log(age, bp, description, doctor, title, weight);
-            //     }
-            // );
+        // .then(async(data) => {
+        //     console.log(data)
+        //     let i = 1;
+        //     const arrayOfCards = data.map((obj) => {
+        //         obj["cardId"] = i;
+        //         i++;
+        //         return obj;
+        //     });
+        //     console.log(arrayOfCards);
+        //
+        //     await arrayOfCards.forEach(
+        //         ({ age, bp, description, doctor, title, weight, id }) => {
+        //             console.log(age, bp, description, doctor, title, weight);
+        //             return new Visit(
+        //                 age,
+        //                 bp,
+        //                 description,
+        //                 doctor,
+        //                 title,
+        //                 weight,
+        //                 id
+        //             ).buildingCard();
+        //
+        //         }
+        //     );
             localStorage.removeItem("data");
             // localStorage.setItem("data", JSON.stringify(arrayOfCards));
             localStorage.setItem("data", JSON.stringify(data));
