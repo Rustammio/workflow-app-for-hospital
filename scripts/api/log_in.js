@@ -17,6 +17,5 @@ export function logIn() {
             localStorage.setItem('token', token)
             cardsManage()
         })
-    // sign.innerText = "createVisit";
 }
 
