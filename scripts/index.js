@@ -1,24 +1,32 @@
 import {logIn} from "./api/log_in.js";
 import CreateModal from "./classes/class_modal/class_form_modal.js";
 
-import {basicModalInstance} from "./modal/form_modal.js"
-import{createDentistFields} from "./modal/dentist.js"
+
+import{createDentistInstance} from "./modal/dentist.js"
+import{createCardiologistInstance} from "./modal/cardiologist.js"
+import{createTherapistInstance} from "./modal/therapist.js"
 const sign = document.querySelector('.sign')
 
 sign.addEventListener('click', logIn)
 
-// 
+
 const modalContainer = document.querySelector(".modal-dialog")
 
 const testModal = new CreateModal("https://ajax.test-danit.com/api/v2/cards","create visit", "Submit", "Cancel").createElements(modalContainer)
 
-const formModal = document.querySelector(".create_form")
-formModal.addEventListener("change", (e) => {
-
-        basicModalInstance()
-
-        switch(e.currentTarget.value){
-            case "dentist": createDentistFields()
+const selectModal = document.getElementById("select_doctor")
+console.log(selectModal);
+selectModal.addEventListener("change", (e) => {
+        debugger        
+        switch(e.target.value){
+            case "dentist": createDentistInstance()
+            break;
+            case "cardiologist": createCardiologistInstance()
+            break;
+            case "therapist": createTherapistInstance()
+            break;
+            default: console.log("uncorrect value");
+            break;
         }
-    // }
+    
 })

@@ -16,7 +16,7 @@ export default class CreateModal extends Modal {
         this.modalForm.classList.add("create_form")
         this.selectDoctors.insertAdjacentHTML("afterbegin", `
             <label for="doctors">select doctor</label>   
-            <select name="doctors" id="">
+            <select name="doctors" id="select_doctor">
             <option value="select_doctor">select doctor</option>
             <option value="cardiologist">Cardiologist </option>
             <option value="dentist">Dentist</option>
@@ -26,7 +26,7 @@ export default class CreateModal extends Modal {
         this.modalForm.append(this.selectDoctors)        
         this.contentWrapper.append(this.modalForm)       
         
-        // this.modalForm.prepend(this.buttonWrapper)
+        // this.modalForm.append(this.buttonWrapper)
     }
 
 

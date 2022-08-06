@@ -1,6 +1,6 @@
 
 export  const basicModalInstance = () =>{
-               
+           
     const ClientHistoryWrapper = document.createElement("div")
      ClientHistoryWrapper.insertAdjacentHTML("beforeend", 
      `
@@ -25,8 +25,8 @@ export  const basicModalInstance = () =>{
      <input type="text" name ="client_name">
  </div>
      `)
-     const wrapperContent = document.querySelector(".create_form")
-     wrapperContent.append(ClientHistoryWrapper)
+     const modalForm = document.querySelector(".create_form")
+     modalForm.append(ClientHistoryWrapper)
    
   
 }

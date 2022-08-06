@@ -25,6 +25,8 @@ export default class Modal{
         this.closeModalButton.classList.add("close-button")
         this.modalHeaderWrapper.append(this.closeModalButton)
 
+        this.contentWrapper.classList.add("content_wrapper")
+
         this.modalElement.append(this.modalHeaderWrapper)
         this.modalElement.append(this.contentWrapper)
 
@@ -33,6 +35,7 @@ export default class Modal{
         this.modalYesButton.classList.add("btn-light")
         this.modalYesButton.innerText = `${this.yes}`
 
+        this.buttonWrapper.classList.add("btn_wrapper")
         this.buttonWrapper.append(this.modalNoButton)
         this.buttonWrapper.append(this.modalYesButton) 
         
