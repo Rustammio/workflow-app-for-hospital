@@ -2,6 +2,8 @@
 export  const basicModalInstance = () =>{
            
     const ClientHistoryWrapper = document.createElement("div")
+    ClientHistoryWrapper.classList.add("history_wrapper")
+
      ClientHistoryWrapper.insertAdjacentHTML("beforeend", 
      `
   <div>        

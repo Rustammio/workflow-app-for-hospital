@@ -26,7 +26,7 @@ export default class CreateModal extends Modal {
         this.modalForm.append(this.selectDoctors)        
         this.contentWrapper.append(this.modalForm)       
         
-        // this.modalForm.append(this.buttonWrapper)
+        this.modalForm.append(this.buttonWrapper)
     }
 
 

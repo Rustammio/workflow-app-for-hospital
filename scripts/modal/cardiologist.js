@@ -2,7 +2,7 @@ import {basicModalInstance} from "./form_modal.js"
 export const createCardiologistInstance = () =>{
 
   basicModalInstance()
-  const cardioInstance = document.querySelector(".create_form")
+  const cardioInstance = document.querySelector(".history_wrapper")
   
   cardioInstance.insertAdjacentHTML("beforeend", `
   <div>
@@ -22,5 +22,8 @@ export const createCardiologistInstance = () =>{
   <input type="text" name = "client_age">
 </div>
   `)
+  const createdButton = document.querySelector(".btn_wrapper")
+    console.log(createdButton);
+    cardioInstance.after(createdButton)
   
 }
