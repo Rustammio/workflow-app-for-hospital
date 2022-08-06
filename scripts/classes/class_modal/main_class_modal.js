@@ -1,7 +1,9 @@
 export default class Modal{
- constructor( title){
+    
+ constructor( title, yes, no){
      this.title = title;
-
+     this.yes = yes;
+     this.no = no;
      this.modalElement = document.createElement('div');
      this.modalHeaderWrapper = document.createElement('div');
      this.modalTitle = document.createElement('h5')
@@ -26,12 +28,14 @@ export default class Modal{
         this.modalElement.append(this.modalHeaderWrapper)
         this.modalElement.append(this.contentWrapper)
 
-        this.modalNoButton.classList.add("btn")
+        this.modalNoButton.classList.add("btn-light")
+        this.modalNoButton.innerText = `${this.no}`
         this.modalYesButton.classList.add("btn-light")
+        this.modalYesButton.innerText = `${this.yes}`
 
         this.buttonWrapper.append(this.modalNoButton)
         this.buttonWrapper.append(this.modalYesButton) 
-        this.modalElement.append(this.buttonWrapper)
+        
 
         // createElements()
         container.append(this.modalElement)
