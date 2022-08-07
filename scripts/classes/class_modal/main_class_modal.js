@@ -5,52 +5,33 @@ export default class Modal{
      this.yes = yes;
      this.no = no;
      this.modalElement = document.createElement('div');
-    //  this.modalHeaderWrapper = document.createElement('div');
-    //  this.modalTitle = document.createElement('h5')
-    //  this.closeModalButton = document.createElement('button')
-    //  this.contentWrapper = document.createElement('div');
-    //  this.buttonWrapper = document.createElement('div');
-    //  this.modalNoButton = document.createElement('button');
-    //  this.modalYesButton = document.createElement('button');
-
  }
-    createElements(container){
-        this.modalElement.classList.add("container-md")
-        this.modalElement.classList.add("modal-content")
+ createElements(){
+    this.modalElement.classList.add('container-md')
+    this.modalElement.insertAdjacentHTML("beforeend",`
+    <div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">${this.title}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${this.no}</button>
+        <button type="button" class="btn btn-primary">${this.yes}</button>
+      </div>
+    </div>
+  </div>
+</div>
+    `)
 
-        this.modalTitle.innerText = `${this.title}`
-        this.modalTitle.classList.add("modal-title")
-        this.modalHeaderWrapper.append(this.modalTitle)
-
-        this.closeModalButton.classList.add("close-button")
-        this.modalHeaderWrapper.append(this.closeModalButton)
-
-        this.contentWrapper.classList.add("content_wrapper")
-
-        this.modalElement.append(this.modalHeaderWrapper)
-        this.modalElement.append(this.contentWrapper)
-
-        this.modalNoButton.classList.add("btn-light")
-        this.modalNoButton.innerText = `${this.no}`
-        this.modalYesButton.classList.add("btn-light")
-        this.modalYesButton.innerText = `${this.yes}`
-
-        this.buttonWrapper.classList.add("btn_wrapper")
-        this.buttonWrapper.append(this.modalNoButton)
-        this.buttonWrapper.append(this.modalYesButton) 
-        
-
-        // createElements()
-        container.append(this.modalElement)
-
-        }
-
-        // render(container){
-           
-        // }
-
-
-        
+    const container = document.querySelector(".forms")
+    console.log(container);
+    container.after(this.modalElement)
+ }       
         
     
 }

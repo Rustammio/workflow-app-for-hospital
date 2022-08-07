@@ -1,3 +1,4 @@
+import Modal from "../classes/class_modal/main_class_modal.js"
 export const createdButton = () => {
     const buttonLogin = document.getElementById("button_login");
     buttonLogin.remove();
@@ -9,7 +10,7 @@ export const createdButton = () => {
     type="button"
     class="btn btn-outline-light back"
     data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
+    data-bs-target="#exampleModal2"
     id="button_create"   
 >
 Create card
@@ -24,7 +25,7 @@ Create card
     // })
     const btn = document.querySelector(".create_wrapper")
     // console.log(btn);
-    btn.addEventListener("click",(e) =>{
-       alert("Create")
+    btn.addEventListener('shown.bs.modal',() =>{
+        const test = new Modal("Create card", "Cancel", "Submit").createElements()
        })
 }

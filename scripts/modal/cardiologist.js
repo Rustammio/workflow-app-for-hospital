@@ -2,28 +2,25 @@ import {basicModalInstance} from "./form_modal.js"
 export const createCardiologistInstance = () =>{
 
   basicModalInstance()
-  const cardioInstance = document.querySelector(".history_wrapper")
+  const cardioInstance = document.querySelector(".form_footer")
   
-  cardioInstance.insertAdjacentHTML("beforeend", `
-  <div>
-  <label for="">normal pressure</label>
-  <input type="number" name ="pressure">
+  cardioInstance.insertAdjacentHTML("beforeBegin", `
+  <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="normal pressure" aria-label="normal pressure" aria-describedby="basic-addon2">
+  <span class="input-group-text" id="basic-addon2">normal pressure</span>
 </div>
-<div>
-  <label for="">body mass index</label>
-  <input type="number" name ="mass">
+<div class="input-group mb-3">
+<input type="text" class="form-control" placeholder="body mass index" aria-label="body mass index" aria-describedby="basic-addon2">
+<span class="input-group-text" id="basic-addon2">body mass index</span>
 </div>
-<div>
-  <label for="">past diseases of the cardiovascular system</label>
-  <input type="text" name = cardio_diseases>
+<div class="input-group mb-3">
+<input type="text" class="form-control" placeholder="past diseases of the cardiovascular system" aria-label="past diseases of the cardiovascular system" aria-describedby="basic-addon2">
+<span class="input-group-text" id="basic-addon2">cardiovascular diseases</span>
 </div>
-<div>
-  <label for="">age</label>
-  <input type="text" name = "client_age">
+<div class="input-group mb-3">
+<input type="text" class="form-control" placeholder="age" aria-label="client_age" aria-describedby="basic-addon2">
+<span class="input-group-text" id="basic-addon2">age</span>
 </div>
   `)
-  const createdButton = document.querySelector(".btn_wrapper")
-    console.log(createdButton);
-    cardioInstance.after(createdButton)
   
 }

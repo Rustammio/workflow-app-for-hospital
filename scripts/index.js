@@ -9,30 +9,24 @@ const sign = document.querySelector('.sign')
 
 sign.addEventListener('click', logIn)
 
-const modalContainer = document.querySelector(".modal-dialog")
 
-// const testModal = new CreateModal("https://ajax.test-danit.com/api/v2/cards", "create visit", "Submit", "Cancel").createElements(modalContainer)
 
-const selectModal = document.getElementById("select_doctor")
 
-// selectModal.addEventListener("change", (e) => {
-//     console.log(document.querySelector(".history_wrapper"));
-//     const clearMod = document.querySelector(".history_wrapper")
-//     if (clearMod !== null) {
-//         clearMod.remove()
-//     }         
-//         switch (e.target.value) {
-//             case "dentist": createDentistInstance()
-//                 break;
-//             case "cardiologist": createCardiologistInstance()
-//                 break;
-//             case "therapist": createTherapistInstance()
-//                 break;
-//             default: console.log("uncorrect value");
-//                 break;
-//         }
+
+const selectModal = document.querySelector(".select_doctor")
+
+selectModal.addEventListener("change", (e) => { 
+            
+        switch (e.target.value) {
+            case "dentist": createDentistInstance()
+                break;
+            case "cardiologist": createCardiologistInstance()
+                break;
+            case "therapist": createTherapistInstance()
+                break;
+            default: console.log("uncorrect value");
+                break;
+        }
     
 
-// })
-// const btn = document.querySelector(".create_wrapper")
-// console.log(btn);
+})

@@ -15,7 +15,7 @@ export function logIn() {
     })
         .then(response => response.text())
         .then(token => {
-            localStorage.setItem('token', token)
+            localStorage.setItem('token', token)            
             createdButton()
             cardsManage()
         })
