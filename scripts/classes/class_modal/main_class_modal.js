@@ -5,13 +5,13 @@ export default class Modal{
      this.yes = yes;
      this.no = no;
      this.modalElement = document.createElement('div');
-     this.modalHeaderWrapper = document.createElement('div');
-     this.modalTitle = document.createElement('h5')
-     this.closeModalButton = document.createElement('button')
-     this.contentWrapper = document.createElement('div');
-     this.buttonWrapper = document.createElement('div');
-     this.modalNoButton = document.createElement('button');
-     this.modalYesButton = document.createElement('button');
+    //  this.modalHeaderWrapper = document.createElement('div');
+    //  this.modalTitle = document.createElement('h5')
+    //  this.closeModalButton = document.createElement('button')
+    //  this.contentWrapper = document.createElement('div');
+    //  this.buttonWrapper = document.createElement('div');
+    //  this.modalNoButton = document.createElement('button');
+    //  this.modalYesButton = document.createElement('button');
 
  }
     createElements(container){

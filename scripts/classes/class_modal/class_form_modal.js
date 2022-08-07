@@ -12,7 +12,7 @@ export default class CreateModal extends Modal {
     createElements(container) {
         super.createElements(container)
         this.modalForm.setAttribute("action", `${this.url}`)
-        // this.modalForm.setAttribute("method", "POST")
+        this.modalForm.setAttribute("method", "POST")
         this.modalForm.classList.add("create_form")
         this.selectDoctors.insertAdjacentHTML("afterbegin", `
             <label for="doctors">select doctor</label>   
