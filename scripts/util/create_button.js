@@ -1,4 +1,4 @@
-import Modal from "../classes/class_modal/main_class_modal.js"
+import CreateModal from "../classes/class_modal/form_class_modal.js";
 export const createdButton = () => {
     const buttonLogin = document.getElementById("button_login");
     buttonLogin.remove();
@@ -16,13 +16,13 @@ export const createdButton = () => {
 Create card
 </button>
     `);
-
-    buttonNav.append( buttonWrapper)
+    
+    buttonNav.append( buttonWrapper)  
     // console.log(buttonCreateCard);
     // buttonCreateCard.addEventListener("click", ()=>{
     //     const testModal = new CreateModal("https://ajax.test-danit.com/api/v2/cards", "create visit", "Submit", "Cancel").createElements(modalContainer)
 
-    // })
+// })
     const btn = document.querySelector(".create_wrapper")
     // console.log(btn);
     btn.addEventListener('shown.bs.modal',() =>{
