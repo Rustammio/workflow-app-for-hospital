@@ -1,16 +1,18 @@
 export default class Modal{
     
- constructor(id, title, btnAccept, btnCancel){
+ constructor(id, title, Accept, Cancel){
       this.id = id;
      this.title = title;
-     this.btnAccept = btnAccept;
-     this.btnCancel = btnCancel;
+     this.Accept = Accept;
+     this.Cancel = Cancel;
      
      this.modalElement = document.createElement('div');
      this.modalDialog = document.createElement('div');
      this.modalContent = document.createElement('div');
      this.modalBody = document.createElement('div');
      this.modalFooter = document.createElement('div');
+     this.buttonAccept = document.createElement('button')
+     this.buttonCancel = document.createElement('button');
      
  }
  createElements(container){
@@ -30,12 +32,15 @@ export default class Modal{
       </div>`)
      this.modalBody.classList.add("modal-body")
       this.modalFooter.classList.add("modal-footer")
-      this.modalFooter.insertAdjacentHTML('beforeend',`
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${this.btnCancel}</button>
-        <button type="button" class="btn btn-primary">${this.btnAccept}</button>
-      </div> 
-      `)
+      this.buttonAccept.setAttribute("type", "button")
+      this.buttonAccept.classList.add("btn", "btn-primary")
+      this.buttonAccept.innerText =`${this.Accept}`
+      this.buttonCancel.setAttribute("type", "button")
+      this.buttonCancel.setAttribute("data-bs-dismiss", "modal")
+      this.buttonCancel.classList.add("btn", "btn-secondary")
+      this.buttonCancel.innerText = `${this.Cancel}`
+      this.modalFooter.append(this.buttonCancel)
+      this.modalFooter.append(this.buttonAccept)
        this.modalElement.append(this.modalDialog) 
        this.modalDialog.append(this.modalContent)
       this.modalContent.append(this.modalBody)

@@ -1,7 +1,7 @@
 const emailInp = document.querySelector('.emailInp')
 const passwordInp = document.querySelector('.passwordInp')
-const sign = document.querySelector('.sign')
-sign.addEventListener('click', logIn)
+// const sign = document.querySelector('.sign')
+// sign.addEventListener('click', logIn)
 import {cardsManage} from "./get_cards.js";
 import {createdButton} from "../util/create_button.js"
 

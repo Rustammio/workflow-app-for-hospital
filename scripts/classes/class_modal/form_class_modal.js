@@ -1,10 +1,9 @@
 import Modal from "./main_class_modal.js"
 export default class CreateModal extends Modal {
-    constructor(id, title, btnAccept, btnCancel){
-        super(id, title, btnAccept, btnCancel)              
+    constructor(id, title, Accept, Cancel){
+        super(id, title, Accept, Cancel)              
                
-        this.selectDoctors = document.createElement("div")
-          
+        this.selectDoctors = document.createElement("div")         
 
     }
 
@@ -22,8 +21,7 @@ export default class CreateModal extends Modal {
         `)
         
         this.modalBody.append(this.selectDoctors)        
-        
-       
+           
        
     }
     
