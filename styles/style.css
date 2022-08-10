@@ -128,3 +128,22 @@ video {
 .search-zone {
     margin-top: 5vh;
 }
+.card {
+    position: relative;
+    margin-bottom: 20px;
+}
+.div-buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    /*position: absolute;*/
+    left: 0;
+    bottom: 0;
+
+}
+
+.btn-close-white {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
