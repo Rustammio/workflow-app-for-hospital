@@ -11,21 +11,25 @@
             integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
             crossorigin="anonymous"
         />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.css"
+    />
         <link rel="stylesheet" href="./styles/style.css" />
         <title>StepProjectCards</title>
 
     </head>
     <body>
-        <!-- <video autoplay muted loop id="myVideo">
+        <video autoplay muted loop id="myVideo">
             <source
                 src="./video/The Breathtaking Beauty of Nature _ HD.mp4"
                 type="video/mp4"
             />
-        </video> -->
+        </video>
 
 <div class="container-fluid">
     <nav class="navbar bg">
-        <div class="container-sm" id="navbar">
+        <div class="container-sm">
             <a class="navbar-brand">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.62791 34.88372">
                     <defs>
@@ -152,12 +156,12 @@
             <button
                     type="button"
                     class="btn btn-outline-light back"
+                    id="signIn"
                     data-bs-toggle="modal"
-                    data-bs-target="#Modal1"
-                    id="button_login"                    
+                    data-bs-target="#exampleModal"
             >
                 Sign in
-            </button>       
+            </button>
         </div>
     </nav>
 </div>
@@ -174,8 +178,8 @@
         </div>
         <div class="col-md">
             <div class="form-floating">
-                <select class="form-select" id="floatingSelectGrid">
-                    <option selected>Status</option>
+                <select class="form-select status" id="floatingSelectGrid">
+                    <option value="" selected>Status</option>
                     <option value="Open">Open</option>
                     <option value="Done">Done</option>
                 </select>
@@ -183,42 +187,56 @@
         </div>
         <div class="col-md">
             <div class="form-floating">
-                <select class="form-select" id="floatingSelectGrid">
-                    <option selected>Urgency</option>
+                <select class="form-select urgency" id="floatingSelectGrid">
+                    <option value="" selected>Urgency</option>
                     <option value="High">High</option>
                     <option value="Normal">Normal</option>
                     <option value="Low">Low</option>
                 </select>
             </div>
         </div>
+        <div class="col-md s">
+            <button
+                    type="button"
+                    class="btn btn-outline-light s search"
+            >
+                Search
+            </button>
+            <button
+                    type="button"
+                    class="col-sm btn btn-outline-light s reset"
+            >
+                Reset
+            </button>
+        </div>
         <!-- <div class=""> -->
-        <button type="button" class="col-sm btn btn-outline-light s">
-            Search
-        </button>
+<!--        <button type="button" class="col-sm btn btn-outline-light s">-->
+<!--            Search-->
+<!--        </button>-->
         <!-- </div> -->
     </div>
 </div>
-<div class="container-md  modal_wrapper" >
-    <!-- <div
+<div class="container-md">
+    <div
             class="modal fade"
-            id="Modal1"
+            id="exampleModal"
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
-    > -->
-        <!-- <div class="modal-dialog modal-dialog-centered">
+    >
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
                         Modal title
-                    </h5> -->
-                    <!-- <button
+                    </h5>
+                    <button
                             type="button"
                             class="btn-close"
                             data-bs-dismiss="modal"
                             aria-label="Close"
-                    ></button> -->
-                <!-- </div>
+                    ></button>
+                </div>
                     <div class="modal-body">
                         <div class="input-group input-group-sm mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
@@ -227,9 +245,9 @@
                                     class="form-control emailInp"
                                     aria-label="Sizing example input"
                                     aria-describedby="inputGroup-sizing-sm"
-                            /> -->
-                        <!-- </div> -->
-                        <!-- <div class="input-group input-group-sm mb-3">
+                            />
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
                             <input
                                     type="text"
@@ -237,27 +255,32 @@
                                     aria-label="Sizing example input"
                                     aria-describedby="inputGroup-sizing-sm"
                             />
-                        </div> -->
+                        </div>
 
-                    <!-- </div> -->
-                <!-- <div class="modal-footer">
+                    </div>
+                <div class="modal-footer">
                     <button
                             type="button"
                             class="btn btn-secondary"
                             data-bs-dismiss="modal"
                     >
                         Close
-                    </button> -->
-                    <!-- <button type="button" data-bs-dismiss="modal" class="btn btn-light sign">
+                    </button>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-light sign">
                         Sign in
                     </button>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
-    
     <div class="container-sm center">
         <div class="row row-cols-1 row-cols-md-3 g-4 card-container">
+            <div class="container">
+                <div class="animate one">
+                    <span>N</span><span>o</span>&nbsp;<span>c</span><span>a</span><span>r</span><span>d</span><span>s</span>&nbsp;<span>t
+                </span><span>o</span>&nbsp;<span>s</span><span>h</span><span>o
+                </span><span>w
+                </span><span>!</span>
 <!--            <div class="col">-->
 <!--                <div class="card">-->
 <!--                    <div class="card-body">-->
@@ -329,42 +352,12 @@
 <!--                            Info-->
 <!--                        </button>-->
 <!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="container-md  modal_form_wrapper" ></div>
-<!-- <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true"> -->
-      <!-- <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered"> -->
-        <!-- <div class="modal-content"> -->
-          <!-- <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel2">Create card</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div> -->
-          <!-- <div class="modal-body"> -->
-            <!-- <form >
-                  
-                  <select class="form-select  select_doctor form-select-lg" aria-label=".form-select-sm" size="1">
-                        <option selected autofocus>select doctor</option>
-                        <option value="cardiologist">Cardiologist</option>
-                        <option value="dentist">Dentist</option>
-                        <option value="therapist">Therapist</option>
-                      </select>             
-                  <div class="d-flex form_footer modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                        data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-light btn-primary submit_btn">Submit</button>
-
-                  </div>
-                 
-                </form> -->
-          <!-- </div>           -->
-        <!-- </div> -->
-      <!-- </div> -->
-    <!-- </div> -->
-
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.js"></script>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
