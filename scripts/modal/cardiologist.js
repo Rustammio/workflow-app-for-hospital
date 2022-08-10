@@ -2,9 +2,9 @@ import {basicModalInstance} from "./form_modal.js"
 export const createCardiologistInstance = () =>{
 
   basicModalInstance()
-  const cardioInstance = document.querySelector(".form_footer")
+  const cardioInstance = document.querySelector(".client-healthy")
   
-  cardioInstance.insertAdjacentHTML("beforeBegin", `
+  cardioInstance.insertAdjacentHTML("beforeend", `
   <div class="row g-3">
   <div class="input-group col mb-3">
   <input type="text" class="form-control" placeholder="normal pressure" aria-label="normal pressure" aria-describedby="basic-addon2">

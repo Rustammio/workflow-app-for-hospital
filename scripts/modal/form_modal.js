@@ -1,9 +1,10 @@
-
+import { test2 } from "../classes/class_modal/form_class_modal.js"
+import CreateModal from "../classes/class_modal/form_class_modal.js"
 export  const basicModalInstance = () =>{
            
-    const ClientHistoryWrapper = document.querySelector(".select_doctor")   
-
-     ClientHistoryWrapper.insertAdjacentHTML("afterEnd", 
+      const clientHelthy = document.createElement("div")
+      clientHelthy.classList.add("client-healthy")
+     clientHelthy.insertAdjacentHTML("afterbegin", 
      `
  
  <div class="input-group mb-3">
@@ -26,5 +27,6 @@ export  const basicModalInstance = () =>{
   </div>
      `) 
    
-  
+     const formBody = document.querySelector(".create_form")
+     formBody.append(clientHelthy)
 }

@@ -7,7 +7,8 @@ export const selectModal = document.querySelector(".select_doctor")
 
 selectModal.addEventListener("change", (e) => {
    
-    const clearMod = document.querySelector(".history_wrapper")
+    const clearMod = document.querySelector(".client-healthy")
+    console.log(clearMod);
     if (clearMod !== null) {
         clearMod.remove()
     }         

@@ -9,6 +9,7 @@ export default class LoginModal extends Modal {
 
     createElements(container) {        
         super.createElements(container)
+        this.modalContent.classList.add("modal_content")
         this.emailField.classList.add("input-group", "input-group-sm", "mb-3")
         this.passwordField.classList.add("input-group", "input-group-sm", "mb-3")
         this.emailField.insertAdjacentHTML("afterbegin", `
