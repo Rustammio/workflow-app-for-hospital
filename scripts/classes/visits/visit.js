@@ -223,7 +223,9 @@ export default class Visit {
 //     },
 // ]
 
-array.forEach((el)=>{
+// array.forEach((el)=> createCard(el))
+
+    function createCard(el){
     if(el.doctor === 'Cardiologist')
     {  const {id, title, description, doctor, nameClient, urgency,pressure, bodyMassIndex, cardioIllness, age,} = el;
         new VisitCardiologist(id, title, description, doctor, nameClient, urgency, pressure, bodyMassIndex, cardioIllness, age,).buildingCard()
@@ -235,7 +237,7 @@ array.forEach((el)=>{
     if(el.doctor === 'Dentist')
     {   const {id, title, description, doctor, nameClient, urgency, dateLastVisit,} = el;
         new VisitDentist(id, title, description, doctor, nameClient, urgency, dateLastVisit ).buildingCard()
-    }
-})
+    }}
+
 
 
