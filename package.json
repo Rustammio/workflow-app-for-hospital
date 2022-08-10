@@ -2,7 +2,7 @@
   "name": "step_project_cards",
   "version": "1.0.0",
   "description": "service application",
-  "main": "index.js",
+  "main": "./scripts/index.js",
   "scripts": {
     "test": "start"
   },
