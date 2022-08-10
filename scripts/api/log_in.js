@@ -1,11 +1,11 @@
-const emailInp = document.querySelector('.emailInp')
-const passwordInp = document.querySelector('.passwordInp')
+// const emailInp = document.querySelector('.emailInp')
+// const passwordInp = document.querySelector('.passwordInp')
 // const sign = document.querySelector('.sign')
 // sign.addEventListener('click', logIn)
 import {cardsManage} from "./get_cards.js";
 import {createdButton} from "../util/create_button.js"
 
-export function logIn() {
+export function logIn(emailInp, passwordInp ) {
     fetch("https://ajax.test-danit.com/api/v2/cards/login", {
         method: 'POST',
         headers: {

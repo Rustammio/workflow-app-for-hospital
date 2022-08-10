@@ -16,29 +16,22 @@ loginButton.addEventListener('shown.bs.modal', () => {
 })
 signWrapper.addEventListener('click', (e) =>{
     const sign = document.querySelector('.sign')
+    const emailInp = document.querySelector('.emailInp')
+    const passwordInp = document.querySelector('.passwordInp')
+   
     if(e.target === sign){
-        // logIn()
-        console.log("hi");
+        const sign = document.querySelector('.sign')
+        const emailInp = document.querySelector('.emailInp')
+        const passwordInp = document.querySelector('.passwordInp')
+        console.log(emailInp.value);
+        console.log(passwordInp.value);
+        logIn(emailInp, passwordInp)
+       
     }
 })
 
 
 
 
-// const selectModal = document.querySelector(".select_doctor")
 
-// selectModal.addEventListener("change", (e) => { 
-            
-//         switch (e.target.value) {
-//             case "dentist": createDentistInstance()
-//                 break;
-//             case "cardiologist": createCardiologistInstance()
-//                 break;
-//             case "therapist": createTherapistInstance()
-//                 break;
-//             default: console.log("uncorrect value");
-//                 break;
-//         }
-    
 
-// })

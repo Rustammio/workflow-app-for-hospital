@@ -1,5 +1,7 @@
-import User from '.././classes/user.js'
-import Modal from '.././classes/class_modal.js'
+
+import {createDentistInstance} from "./dentist.js"
+import {createCardiologistInstance} from "./cardiologist.js"
+import {createTherapistInstance} from "./therapist.js"
 
 export const selectModal = document.querySelector(".select_doctor")
 

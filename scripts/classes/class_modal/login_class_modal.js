@@ -16,7 +16,7 @@ export default class LoginModal extends Modal {
         <input
                 type="text"
                 class="form-control emailInp"
-                aria-label="Sizing example input"
+                aria-label="Sizing emailInp input"
                 aria-describedby="inputGroup-sizing-sm"
         />
         `)
@@ -24,8 +24,8 @@ export default class LoginModal extends Modal {
         <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
         <input
                 type="text"
-                class="form-control emailInp"
-                aria-label="Sizing example input"
+                class="form-control passwordInp"
+                aria-label="Sizing passwordInp input"
                 aria-describedby="inputGroup-sizing-sm"
         />
         `)
