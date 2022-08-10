@@ -1,7 +1,7 @@
 import { test2 } from "../classes/class_modal/form_class_modal.js"
 import CreateModal from "../classes/class_modal/form_class_modal.js"
 export  const basicModalInstance = () =>{
-       const arrayHealthyOptions = ["purpose of the visit", "description problem", "name"]     
+       const arrayHealthyOptions = ["purpose visit", "description problem", "name"]     
       const clientHealthy = document.createElement("div")
       clientHealthy.classList.add("client-healthy")
 

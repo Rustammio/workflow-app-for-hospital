@@ -13,7 +13,7 @@ export default class CreateModal extends Modal {
         this.modalBody.classList.add("create_form")      
        
         this.selectDoctors.insertAdjacentHTML("afterbegin", `
-        <select class="form-select  select_doctor form-select-sm" aria-label=".form-select-lg" size="1">
+        <select class="form-select  select_doctor form-select" aria-label=".form-select-lg" size="1">
         <option selected >select doctor</option>
         <option value="cardiologist">Cardiologist</option>
         <option value="dentist">Dentist</option>
