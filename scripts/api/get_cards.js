@@ -8,28 +8,7 @@ export function cardsManage() {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            // let i = 1;
-            // const arrayOfCards = data.map((obj) => {
-            //     obj["cardId"] = i;
-            //     i++;
-            //     return obj;
-            // });
-            // console.log(arrayOfCards);
 
-            // await arrayOfCards.forEach(
-            //     ({ age, bp, description, doctor, title, weight, id }) => {
-            //         return new createCard(
-            //             age,
-            //             bp,
-            //             description,
-            //             doctor,
-            //             title,
-            //             weight,
-            //             id
-            //         ).render();
-            //         // console.log(age, bp, description, doctor, title, weight);
-            //     }
-            // );
             localStorage.removeItem("data");
             // localStorage.setItem("data", JSON.stringify(arrayOfCards));
             localStorage.setItem("data", JSON.stringify(data));
