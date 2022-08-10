@@ -11,6 +11,10 @@
             integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
             crossorigin="anonymous"
         />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.css"
+    />
         <link rel="stylesheet" href="./styles/style.css" />
         <title>StepProjectCards</title>
 
@@ -168,13 +172,14 @@
                         class="form-control"
                         id="floatingInputGrid"
                         placeholder="Search by title or body text"
+                        value=""
                 />
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating">
-                <select class="form-select" id="floatingSelectGrid">
-                    <option selected>Status</option>
+                <select class="form-select status" id="floatingSelectGrid">
+                    <option value="" selected>Status</option>
                     <option value="Open">Open</option>
                     <option value="Done">Done</option>
                 </select>
@@ -182,18 +187,32 @@
         </div>
         <div class="col-md">
             <div class="form-floating">
-                <select class="form-select" id="floatingSelectGrid">
-                    <option selected>Urgency</option>
+                <select class="form-select urgency" id="floatingSelectGrid">
+                    <option value="" selected>Urgency</option>
                     <option value="High">High</option>
                     <option value="Normal">Normal</option>
                     <option value="Low">Low</option>
                 </select>
             </div>
         </div>
+        <div class="col-md s">
+            <button
+                    type="button"
+                    class="btn btn-outline-light s search"
+            >
+                Search
+            </button>
+            <button
+                    type="button"
+                    class="col-sm btn btn-outline-light s reset"
+            >
+                Reset
+            </button>
+        </div>
         <!-- <div class=""> -->
-        <button type="button" class="col-sm btn btn-outline-light s">
-            Search
-        </button>
+<!--        <button type="button" class="col-sm btn btn-outline-light s">-->
+<!--            Search-->
+<!--        </button>-->
         <!-- </div> -->
     </div>
 </div>
@@ -256,6 +275,12 @@
     </div>
     <div class="container-sm center">
         <div class="row row-cols-1 row-cols-md-3 g-4 card-container">
+            <div class="container">
+                <div class="animate one">
+                    <span>N</span><span>o</span>&nbsp;<span>c</span><span>a</span><span>r</span><span>d</span><span>s</span>&nbsp;<span>t
+                </span><span>o</span>&nbsp;<span>s</span><span>h</span><span>o
+                </span><span>w
+                </span><span>!</span>
 <!--            <div class="col">-->
 <!--                <div class="card">-->
 <!--                    <div class="card-body">-->
@@ -332,7 +357,7 @@
         </div>
     </div>
 </div>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.6/dragula.min.js"></script>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
