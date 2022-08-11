@@ -2,7 +2,7 @@ import Modal from "./main_class_modal.js"
 export default class CreateModal extends Modal {
     constructor(id, title, Accept, Cancel){
         super(id, title, Accept, Cancel)              
-        // this.arrayHealthyOptions = ["purpose of the visit", "description problem", "name"]      
+          
         this.selectDoctors = document.createElement("div")
         // this.clientHealthy = document.createElement("div")         
         // this.clientHealthyItem = document.createElement("div")
@@ -13,7 +13,7 @@ export default class CreateModal extends Modal {
         this.modalBody.classList.add("create_form")      
        
         this.selectDoctors.insertAdjacentHTML("afterbegin", `
-        <select class="form-select  select_doctor form-select" aria-label=".form-select-lg" size="1">
+        <select class="form-select  select_doctor form-select select_form" aria-label=".form-select-lg" size="1">
         <option selected >select doctor</option>
         <option value="cardiologist">Cardiologist</option>
         <option value="dentist">Dentist</option>
@@ -39,9 +39,9 @@ export default class CreateModal extends Modal {
 }
 
 const container = document.querySelector(".modal_form_wrapper")
-const test2 = new CreateModal("2", "Create form", "Submit", "Exit").createElements(container)
-console.log(test2);
-export {test2}
+const formModal= new CreateModal("2", "Create form", "Submit", "Exit").createElements(container)
+
+export {formModal}
 
 
 
