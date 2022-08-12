@@ -20,6 +20,7 @@ export default class CreateModal extends Modal {
         <option value="therapist">Therapist</option>
       </select>  
         `)
+        this.buttonAccept.classList.add("submit")
         // this.clientHealthy.classList.add("client-healthy")
         this.modalBody.append(this.selectDoctors)
         // this.modalBody.append(this.clientHealthy)       

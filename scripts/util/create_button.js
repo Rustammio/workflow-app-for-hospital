@@ -11,7 +11,7 @@ export const createdButton = () => {
     
     
     buttonCreate.addEventListener('shown.bs.modal',() =>{
-       formModal      
+       formModal    
         
        })
 }
