@@ -13,12 +13,12 @@ fetch("https://ajax.test-danit.com/api/v2/cards", {
 })
   .then(response => response.json())
   .then(response => {
-    // HideModal()
+    
     if(response.status === 200){
-        // modalToHide.setAttribute('aria-hidden',`true`)
         
         clearForm()
     }
+    console.log(response);
     return response}).catch(err => {
       console.error(err)
     })

@@ -4,8 +4,7 @@ export default class CreateModal extends Modal {
         super(id, title, Accept, Cancel)              
           
         this.selectDoctors = document.createElement("div")
-        // this.clientHealthy = document.createElement("div")         
-        // this.clientHealthyItem = document.createElement("div")
+    
     }
 
     createElements(container) {        
@@ -22,23 +21,14 @@ export default class CreateModal extends Modal {
       </select>  
         `)
         this.buttonAccept.classList.add("submit")
-        // this.buttonAccept.setAttribute("data-bs-toggle", "modal")
+        this.buttonAccept.setAttribute("data-bs-toggle", "modal")
+        this.buttonAccept.setAttribute("data-bs-target", "#Modal2")
         // this.clientHealthy.classList.add("client-healthy")
         this.modalBody.append(this.selectDoctors)
         // this.modalBody.append(this.clientHealthy)       
      
     }
-    // createClientHealthyElement(){
-    //   // this.createElements(container)
-    // this.arrayHealthyOptions.forEach(field =>{
-    //   this.clientHealthyItem.classList.add('input-group', 'mb-3')
-    //   this.clientHealthyItem.insertAdjacentHTML('beforeend',`
-    //   <input type="text" class="form-control" placeholder=${field} aria-label=${field} aria-describedby="basic-addon2">
-    //   <span class="input-group-text" id="basic-addon2">${field}</span>
-    //   `)
-    //   this.clientHealthy.append(this.clientHealthyItem)
-    // })
-    // }
+  
 }
 
 const container = document.querySelector(".modal_form_wrapper")
