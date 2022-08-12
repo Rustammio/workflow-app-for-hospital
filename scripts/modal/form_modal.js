@@ -1,5 +1,4 @@
-// import { test2 } from "../classes/class_modal/form_class_modal.js"
-import CreateModal from "../classes/class_modal/form_class_modal.js"
+
 import {createInput} from "../util/create_input.js"
 export  const basicModalInstance = () =>{
        const arrayHealthyOptions = ["purpose visit", "description problem", "name"]     

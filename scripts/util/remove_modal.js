@@ -1,5 +1,7 @@
 export const HideModal = () =>{
-  const modal =  document.querySelector(".modal_content")
+  const modal =  document.querySelector("body")
 console.log(modal); 
-modal.style.display = "none"
+modal.classList.remove("modal-open")
+// modal.style.display = "none"
+// modal.style.backdrop = false
 }
