@@ -1,3 +1,4 @@
+import createCard from "../util/create_card.js";
 export function cardsManage() {
     fetch("https://ajax.test-danit.com/api/v2/cards", {
         headers: {
@@ -8,7 +9,7 @@ export function cardsManage() {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-
+            data.forEach((el)=> createCard(el))
             localStorage.removeItem("data");
             // localStorage.setItem("data", JSON.stringify(arrayOfCards));
             localStorage.setItem("data", JSON.stringify(data));
