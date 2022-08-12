@@ -9,16 +9,17 @@ fetch("https://ajax.test-danit.com/api/v2/cards", {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`
   },
-  body: JSON.stringify({...requestObject})
+  body: JSON.stringify(requestObject)
 })
   .then(response => response.json())
   .then(response => {
     
-    if(response.status === 200){
-        
+    if(response.status === 200){        
         clearForm()
+        localStorage.setItem("data", response)
+        console.log(response);
     }
-    console.log(response);
+     
     return response}).catch(err => {
       console.error(err)
     })

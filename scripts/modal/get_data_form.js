@@ -2,8 +2,9 @@ import EmptyInput from "../err/emptyInput.js"
 import ChooseSelect from "../err/chooseSelect.js"
 import { createReqestModal } from "../api/post_form.js"
 export const getDataForm = () => {
-    let arrInput = []
-    let arrSelect = []
+    let inpToRequest ={}
+    let selectToRequest = {}
+    
     const submitButton = document.querySelector(".submit")
     submitButton.addEventListener("click", () => {
         const form = document.querySelector(".create_form")
@@ -18,10 +19,8 @@ export const getDataForm = () => {
                 throw new EmptyInput()
 
             } else {
-                let inpToRequest = ({ [key]: value })
-                arrInput.push(inpToRequest);
-                
-
+                inpToRequest[key] = value
+                         
             }
 
         })
@@ -29,19 +28,19 @@ export const getDataForm = () => {
             let selectValue = select.value
             if (selectValue === "dentist" || selectValue === "cardiologist" || selectValue === "therapist") {
 
-                arrSelect.push(({ "doctor": selectValue }))
+                selectToRequest.doctor= selectValue
 
             } else if (selectValue === "routine" || selectValue === "priority" || selectValue === "urgent") {
                
-                arrSelect.push(({ "urgently": selectValue }))
+                selectToRequest.urgently = selectValue
             } else {
                 throw new ChooseSelect()
             }
-
+           
         })
-        const arrToRequest = [...arrInput, ...arrSelect]
-        const objToRequest = Object.assign({}, arrToRequest)
-        console.log(objToRequest);
+        
+        const objToRequest = Object.assign(selectToRequest, inpToRequest)
+        
         createReqestModal(objToRequest)
     }catch(e){
         console.log(e)
