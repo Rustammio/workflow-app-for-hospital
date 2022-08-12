@@ -223,19 +223,5 @@ export default class Visit {
 //     },
 // ]
 
-array.forEach((el)=>{
-    if(el.doctor === 'Cardiologist')
-    {  const {id, title, description, doctor, nameClient, urgency,pressure, bodyMassIndex, cardioIllness, age,} = el;
-        new VisitCardiologist(id, title, description, doctor, nameClient, urgency, pressure, bodyMassIndex, cardioIllness, age,).buildingCard()
-    }
-    if(el.doctor === 'Therapist')
-    {  const {id, title, description, doctor, nameClient, urgency, age,} = el;
-        new VisitTherapist(id, title, description, doctor, nameClient, urgency, age,).buildingCard()
-    }
-    if(el.doctor === 'Dentist')
-    {   const {id, title, description, doctor, nameClient, urgency, dateLastVisit,} = el;
-        new VisitDentist(id, title, description, doctor, nameClient, urgency, dateLastVisit ).buildingCard()
-    }
-})
 
 
