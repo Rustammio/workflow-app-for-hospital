@@ -22,7 +22,7 @@ export default class CreateModal extends Modal {
       </select>  
         `)
         this.buttonAccept.classList.add("submit")
-        this.buttonAccept.setAttribute("data-bs-toggle", "modal")
+        // this.buttonAccept.setAttribute("data-bs-toggle", "modal")
         // this.clientHealthy.classList.add("client-healthy")
         this.modalBody.append(this.selectDoctors)
         // this.modalBody.append(this.clientHealthy)       

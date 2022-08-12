@@ -3,5 +3,5 @@ export const HideModal = () =>{
 console.log(modal); 
 modal.classList.remove("modal-open")
 // modal.style.display = "none"
-// modal.style.backdrop = false
+// modal.style.backdrop = 
 }
