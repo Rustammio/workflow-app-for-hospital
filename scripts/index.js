@@ -11,3 +11,5 @@ dragula([document.querySelector(".card-container")]);
 
 selectedOption()
 getDataForm()
+const idCard = document.getElementById('48019')
+console.log(idCard);

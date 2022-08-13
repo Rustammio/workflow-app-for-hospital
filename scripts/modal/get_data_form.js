@@ -42,7 +42,9 @@ export const getDataForm = () => {
                 }
             })
 
-            const objToRequest = Object.assign(selectToRequest, inpToRequest)           
+            const objToRequest = Object.assign(selectToRequest, inpToRequest) 
+            
+            objToRequest.satus = "open"
             createReqestModal(objToRequest)
 
         } catch (e) {

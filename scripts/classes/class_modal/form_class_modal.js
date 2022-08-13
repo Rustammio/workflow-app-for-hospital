@@ -1,8 +1,8 @@
 import Modal from "./main_class_modal.js"
 
 export default class CreateModal extends Modal {
-  constructor(id, title, Accept, Cancel) {
-    super(id, title, Accept, Cancel)
+  constructor(idButton, title, Accept, Cancel) {
+    super(idButton, title, Accept, Cancel)
     this.selectDoctors = document.createElement("div")
   }
 
@@ -20,9 +20,7 @@ export default class CreateModal extends Modal {
       </select>  
         `)
 
-    this.buttonAccept.classList.add("submit")
-    this.buttonAccept.setAttribute("data-bs-toggle", "modal")
-    this.buttonAccept.setAttribute("data-bs-target", "#Modal2")
+    this.buttonAccept.classList.add("submit")    
 
     this.modalBody.append(this.selectDoctors)
   }
@@ -30,6 +28,7 @@ export default class CreateModal extends Modal {
 
 const container = document.querySelector(".modal_form_wrapper")
 const formModal = new CreateModal("2", "Create form", "Create", "Exit").createElements(container)
+
 
 export { formModal }
 
