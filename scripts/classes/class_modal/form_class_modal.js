@@ -21,8 +21,8 @@ export default class CreateModal extends Modal {
         `)
 
     this.buttonAccept.classList.add("submit")
-    this.buttonAccept.setAttribute("data-bs-toggle", "modal")
-    this.buttonAccept.setAttribute("data-bs-target", "#Modal2")
+    // this.buttonAccept.setAttribute("data-bs-toggle", "modal")
+    // this.buttonAccept.setAttribute("data-bs-target", "#Modal2")
 
     this.modalBody.append(this.selectDoctors)
   }
