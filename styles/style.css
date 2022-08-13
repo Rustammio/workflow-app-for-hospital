@@ -106,7 +106,9 @@ video {
     color: rgb(205, 204, 204)
 }
 
-
+input:invalid:required{
+    border-color:rgb(227, 78, 78)
+}
 
 #floatingSelectGrid {
 

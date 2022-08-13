@@ -1,7 +1,7 @@
 import Visit from './visit.js'
 export default class VisitDentist extends Visit {
-    constructor(id, title, description, doctor, nameClient, urgency, dateLastVisit,){
-        super(id, title, description, doctor, nameClient, urgency);
+    constructor(id, title, description, doctor, name, urgency, dateLastVisit,){
+        super(id, title, description, doctor, name, urgency);
         this.dateLastVisit = dateLastVisit;
     }
     showMore(){
