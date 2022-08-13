@@ -12,9 +12,9 @@ export const basicModalInstance = () => {
      clientHealthy.insertAdjacentHTML("beforeend", `
       <select class="form-select form-select select_form" aria-label=".form-select-sm urgen">
       <option selected>urgency</option>
-      <option value="routine">routine</option>
-      <option value="priority">priority</option>
-      <option value="urgent">urgent</option>
+      <option value="High">High</option>
+      <option value="Normal">Normal</option>
+      <option value="Low">Low</option>
       </select> 
       `)
 

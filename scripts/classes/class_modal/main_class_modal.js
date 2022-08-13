@@ -36,7 +36,7 @@ export default class Modal {
     this.modalFooter.classList.add("modal-footer")
 
     this.buttonAccept.setAttribute("type", "button")
-    this.buttonAccept.classList.add("btn", "btn-primary", "btn-outline-light", "back")
+    this.buttonAccept.classList.add("btn", "btn-outline-light", "back")
     this.buttonAccept.innerText = `${this.Accept}`
 
     this.buttonCancel.setAttribute("type", "button")
