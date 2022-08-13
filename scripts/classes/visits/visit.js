@@ -1,9 +1,9 @@
 export default class Visit {
-    constructor(id, title, description, doctor, nameClient, urgency, open = openDialogModal, del = deleteVisit){
+    constructor(id, purpose, description, doctor, name, urgency, open = openDialogModal, del = deleteVisit){
         this.id = id;
         this.doctor = doctor;
-        this.nameClient = nameClient;
-        this.title = title;
+        this.name = name;
+        this.purpose = purpose;
         this.description = description;
         this.urgency = urgency;
         this.openDialogModal = openDialogModal;
@@ -62,7 +62,7 @@ export default class Visit {
         this.card.append(this.cardBody)
         this.cardBody.prepend(this.deleteButton)
         this.cardBody.insertAdjacentHTML(`beforeend`, `
-        <h3 class="card-title">${this.nameClient}</h3>
+        <h3 class="card-title">${this.name}</h3>
         <h3 class="card-title">${this.doctor}</h3>`)
         this.cardBody.append(this.fullCard)
         this.cardBody.append(this.divButtons)
@@ -74,7 +74,7 @@ export default class Visit {
 
     showMore(){
         this.fullCard.insertAdjacentHTML('beforeend', `
-             <h5 class="card-title">${this.title}</h5>
+             <h5 class="card-title">${this.purpose}</h5>
              <p class = "card-text">${this.description}</p>
              <p class = "card-text">${this.urgency}</p>
              <h6 class ="card-title">Additional information about the patient:</h6>
@@ -125,7 +125,7 @@ export default class Visit {
 function openDialogModal(){
     this.modalDialogDeleteText = document.querySelector('.modal-dialog-delete-text')
     this.modalDialogDeleteText.innerHTML =
-        `<p> ${this.nameClient} will not see a ${this.doctor}.<br> Are you sure?</p>`
+        `<p> ${this.name} will not see a ${this.doctor}.<br> Are you sure?</p>`
     this.modalDialogDeleteFooter = document.querySelector('.modal-dialog-delete-footer')
     this.modalDialogDeleteFooter.innerHTML =
         `<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">CLOSE</button>

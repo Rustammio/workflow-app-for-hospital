@@ -1,13 +1,13 @@
 import Visit from './visit.js'
 export default class VisitDentist extends Visit {
-    constructor(id, title, description, doctor, name, urgency, dateLastVisit,){
-        super(id, title, description, doctor, name, urgency);
-        this.dateLastVisit = dateLastVisit;
+    constructor(id, purpose, description, doctor, name, urgency, visit,){
+        super(id, purpose, description, doctor, name, urgency);
+        this.visit = visit;
     }
     showMore(){
         super.showMore();
         this.infoPatient.insertAdjacentHTML('beforeend', `
-            <li class="card-text">${this.dateLastVisit}</li>`)
+            <li class="card-text">${this.visit}</li>`)
     }
 
 

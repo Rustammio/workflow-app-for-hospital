@@ -5,16 +5,16 @@ import VisitDentist from "../classes/visits/visit_dentist.js";
 export default function createCard(el){
     
     if(el.doctor.toLowerCase() === 'Cardiologist'.toLowerCase())
-    {  const {id, title, description, doctor, name, urgency,pressure, bodyMassIndex, cardioIllness, age,} = el;
-        new VisitCardiologist(id, title, description, doctor, name, urgency, pressure, bodyMassIndex, cardioIllness, age,).buildingCard()
+    {  const {id, purpose, description, doctor, name, urgency,pressure, mass, cardio, age,} = el;
+        new VisitCardiologist(id, purpose, description, doctor, name, urgency, pressure, mass, cardio, age,).buildingCard()
     }
     if(el.doctor.toLowerCase() === 'Therapist'.toLowerCase())
-    {  const {id, title, description, doctor, name, urgency, age,} = el;
-        new VisitTherapist(id, title, description, doctor, name, urgency, age,).buildingCard()
+    {  const {id, purpose, description, doctor, name, urgency, age,} = el;
+        new VisitTherapist(id, purpose, description, doctor, name, urgency, age,).buildingCard()
     }
     if(el.doctor.toLowerCase() === 'Dentist'.toLowerCase())
-    {   const {id, title, description, doctor, name, urgency, dateLastVisit,} = el;
-        new VisitDentist(id, title, description, doctor, name, urgency, dateLastVisit ).buildingCard()
+    {   const {id, purpose, description, doctor, name, urgency, visit,} = el;
+        new VisitDentist(id, purpose, description, doctor, name, urgency, visit ).buildingCard()
     }}
 
 

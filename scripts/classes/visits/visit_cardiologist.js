@@ -1,10 +1,10 @@
 import Visit from "./visit.js"
 export default class VisitCardiologist extends Visit {
-    constructor(id, title, description, doctor, name, urgency, pressure, bodyMassIndex, cardioIllness, age, ){
-        super(id, title, description, doctor, name, urgency);
+    constructor(id, purpose, description, doctor, name, urgency, pressure, mass, cardio, age, ){
+        super(id, purpose, description, doctor, name, urgency);
         this.pressure = pressure;
-        this.bodyMassIndex = bodyMassIndex;
-        this.cardioIllness = cardioIllness;
+        this.mass = mass;
+        this.cardio = cardio;
         this.age = age;
     }
 
@@ -12,8 +12,8 @@ export default class VisitCardiologist extends Visit {
         super.showMore();
         this.infoPatient.insertAdjacentHTML('beforeend', `
         <li class="card-text">${this.pressure}</li>
-        <li class="card-text">${this.bodyMassIndex}</li>
-        <li class="card-text">${this.cardioIllness}</li>
+        <li class="card-text">${this.mass}</li>
+        <li class="card-text">${this.cardio}</li>
         <li class="card-text">${this.age}</li>`)
     }
 }
