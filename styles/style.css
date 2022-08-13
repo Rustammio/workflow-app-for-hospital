@@ -52,6 +52,10 @@ video {
     border: none;
 }
 
+.select_form{
+    margin-bottom: 15px;
+}
+
 .center {
     padding: 10vh 0;
 }
@@ -261,4 +265,17 @@ video {
     }
 }
 
+.div-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
 
+.card-body {
+    position: relative;
+}
+.btn-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}

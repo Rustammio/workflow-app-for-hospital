@@ -5,6 +5,7 @@ sign.addEventListener('click', logIn)
 import {cardsManage} from "./get_cards.js";
 import InvalidEmailOrPassword from "../err/invalidPOrE.js";
 import EmptyInput from "../err/emptyInput.js";
+import {createdButton} from "../util/create_button.js"
 export const cardContainer = document.querySelector('.card-container')
 export function logIn() {
     fetch("https://ajax.test-danit.com/api/v2/cards/login", {
@@ -28,7 +29,8 @@ export function logIn() {
             localStorage.setItem("token", token);
             cardContainer.innerHTML = "";
             cardsManage();
-            signIn.innerText = "Create Visit";
+            createdButton();
+            // signIn.innerText = "Create Visit";
             // signIn.setAttribute("data-bs-target", "#createModal");
         })
         .catch((e) => {

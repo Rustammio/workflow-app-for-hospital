@@ -1,25 +1,17 @@
 export default class Visit {
-    constructor(id, title, description, doctor, nameClient, urgency){
+    constructor(id, title, description, doctor, nameClient, urgency, open = openDialogModal, del = deleteVisit){
         this.id = id;
         this.doctor = doctor;
         this.nameClient = nameClient;
         this.title = title;
         this.description = description;
         this.urgency = urgency;
+        this.openDialogModal = openDialogModal;
+        this.deleteVisit = deleteVisit;
 
-<<<<<<< HEAD
-        this.card = document.createElement('div');
-        this.card.setAttribute('class', 'col')
-        this.fullcard = document.createElement('ul');
-        this.deleteButton = document.createElement('div');
-        this.showMoreButton = document.createElement('button');
-        this.adjustButton = document.createElement('button');
-
-        this.deleteButton.addEventListener('click', this.delete);
-        this.showMoreButton.addEventListener('click', this.showMore);
-=======
         this.cardCol = document.createElement('div');
         this.cardCol.setAttribute('class', 'col');
+
         this.card = document.createElement('div');
         this.card.setAttribute('class', 'card');
         this.cardBody = document.createElement('div');
@@ -34,7 +26,7 @@ export default class Visit {
         this.deleteButton.setAttribute('class', 'btn-close btn-close-white');
         this.deleteButton.setAttribute('type', 'button');
         this.deleteButton.setAttribute('data-bs-toggle', 'modal');
-        this.deleteButton.setAttribute('data-bs-target', '#deleteModal');
+        this.deleteButton.setAttribute('data-bs-target', '#modalDialogDelete');
 
 
         this.showMoreButton = document.createElement('button');
@@ -54,64 +46,19 @@ export default class Visit {
         this.adjustButton.setAttribute('type', 'button');
         this.adjustButton.textContent = 'ADJUST';
 
-        // this.deleteButton.addEventListener('click', this.delete);
+        this.deleteButton.addEventListener('click', this.openDialogModal.bind(this));
         this.showMoreButton.addEventListener('click', this.showMore.bind(this));
         this.hideButton.addEventListener('click', this.hide.bind(this));
-        // this.deleteModalBtn = document.querySelector("#deleteModalBtn")
-        // this.deleteModalBtn.addEventListener('click', this.delete.bind(this));
 
->>>>>>> 0736e64cc6b606515d0923e305310463d0a10cf9
-        // this.adjustButton.addEventListener('click',      );
 
 
     }
 
     buildingCard(){
-<<<<<<< HEAD
-        const container = document.querySelector('.row .row-cols-1 .row-cols-md-3 .g-4')
-        this.card.setAttribute('id',`${this.id}`)
-        this.card.prepend(this.deleteButton)
-        this.card.insertAdjacentHTML(`beforeend`, `
-        <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${this.nameClient}</h5>
-                        <h5 class="card-title">${this.doctor}</h5>                    
-                    </div>
-                </div>`)
-        this.card.append(this.fullcard)
-        this.card.append(this.adjustButton)
-        this.card.append(this.showMoreButton)
-    }
-
-    showMore(){
-        this.fullcard.insertAdjacentHTML('beforeend', `
-        <li class="card-text">${this.title}</li>
-        <li class="card-text">${this.description}</li>
-        <li class="card-text">${this.urgency}</li>`)
-    }
-
-    delete(){
-        const token = localStorage.getItem('token')
-        fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            },
-        })
-            .then(response => response.status)
-            .then(data => {
-                if('200'){
-                    this.card.remove()
-                }
-            })
-
-
-=======
         const container = document.querySelector('.card-container')
         container.append(this.cardCol)
         this.cardCol.setAttribute('id',`${this.id}`)
         this.cardCol.append(this.card)
-        // this.cardCol.append(this.divButtons)
         this.card.append(this.cardBody)
         this.cardBody.prepend(this.deleteButton)
         this.cardBody.insertAdjacentHTML(`beforeend`, `
@@ -146,159 +93,60 @@ export default class Visit {
     }
 
     delete(){
-        this.cardCol.remove()
-        // this.deleteModalBtn = document.querySelector("#deleteModalBtn")
-        //  let decidedDelete
-        //  deleteModalBtn.addEventListener('click', ()=>{
-        //     decidedDelete = true;
-        //     console.log(decidedDelete)
-        //  })
-        //  if(decidedDelete === true){
-        //      console.log(this.cardCol)
-        //      this.cardCol.remove()
-        //  }
+
         // this.cardCol.remove()
-        //IMPORTANT
-        // const token = localStorage.getItem('token')
-        // fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-        //     method: 'DELETE',
-        //     headers: {
-        //         'Authorization': `Bearer ${token}`
-        //     },
-        // })
-        //     .then(response => response.status)
-        //     .then(data => {
-        //         if('200'){
-        //             this.card.remove()
-        //         }
-        //     })
-        //
->>>>>>> 0736e64cc6b606515d0923e305310463d0a10cf9
+        // this.deleteModalBtn = document.querySelector("#deleteModalBtn")
+
+        // this.deleteModalBtn.addEventListener('click', deleteThisCard(this.id))
+
     }
+    // this.cardCol.remove()
+    //IMPORTANT
+    // const token = localStorage.getItem('token')
+    // fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
+    //     method: 'DELETE',
+    //     headers: {
+    //         'Authorization': `Bearer ${token}`
+    //     },
+    // })
+    //     .then(response => response.status)
+    //     .then(data => {
+    //         if('200'){
+    //             this.card.remove()
+    //         }
+    //     })
+    //
+
 
     adjust(){
-        this.adjustButton.addEventListener('click', ()=>{
 
-        })
     }
-<<<<<<< HEAD
-
+}
+function openDialogModal(){
+    this.modalDialogDeleteText = document.querySelector('.modal-dialog-delete-text')
+    this.modalDialogDeleteText.innerHTML =
+        `<p> ${this.nameClient} will not see a ${this.doctor}.<br> Are you sure?</p>`
+    this.modalDialogDeleteFooter = document.querySelector('.modal-dialog-delete-footer')
+    this.modalDialogDeleteFooter.innerHTML =
+        `<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">CLOSE</button>
+    <button type="button" class="btn btn-outline-light dialog-delete"  data-bs-dismiss="modal">I\`m sure, DELETE</button>`
+    this.modalDialogDeleteBtn =document.querySelector('.dialog-delete')
+    this.modalDialogDeleteBtn.addEventListener('click', this.deleteVisit.bind(this))
 }
 
-
-
-
-
-=======
+function deleteVisit(){
+    this.cardCol.remove()
+    // const token = localStorage.getItem('token')
+    // fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
+    //     method: 'DELETE',
+    //     headers: {
+    //         'Authorization': `Bearer ${token}`
+    //     },
+    // })
+    //     .then(response => response.status)
+    //     .then(data => {
+    //         if('200'){
+    //             this.card.remove()
+    //         }
+    //     })
 }
-//---------------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------------------------
-// class VisitDentist extends Visit {
-//     constructor(id, title, description, doctor, nameClient, urgency, dateLastVisit,){
-//         super(id, title, description, doctor, nameClient, urgency);
-//         this.dateLastVisit = dateLastVisit;
-//     }
-//     showMore(){
-//         super.showMore();
-//         this.infoPatient.insertAdjacentHTML('beforeend', `
-//             <li class="card-text">${this.dateLastVisit}</li>`)
-//     }
-//
-//
-// }
-
-
-
-//------------------------------------------------------------------------------------
-// class VisitTherapist extends Visit {
-//     constructor(id, title, description, doctor, nameClient, urgency,age,){
-//         super(id, title, description, doctor, nameClient, urgency,age,);
-//         this.age = age;
-//     }
-//
-//     showMore(){
-//         super.showMore();
-//         this.infoPatient.insertAdjacentHTML('beforeend', `
-//             <li class="card-text">${this.age}</li>`)
-//     }
-//
-// }
-
-// const array = [
-//     {
-//         id:2,
-//         title:'title2' ,
-//         description:'description2',
-//         doctor:'Cardiologist',
-//         nameClient:'Katia',
-//         urgency:'small talk',
-//         pressure:'120/80',
-//         bodyMassIndex:'21',
-//         cardioIllness:'wah',
-//         age:'29',
-//
-//     },
-//     {
-//         id:'1',
-//         title:'title' ,
-//         description:'description',
-//         doctor:'Therapist',
-//         nameClient:'Vasia',
-//         urgency:'very important',
-//         age:'29'
-//
-//
-//     },
-//     {
-//         id:'3',
-//         title:'title' ,
-//         description:'description',
-//         doctor:'Dentist',
-//         nameClient:'John',
-//         urgency:'very important',
-//         dateLastVisit:'29.04.2022'
-//
-//
-//     },
-//     {
-//         id:'4',
-//         title:'title' ,
-//         description:'description',
-//         doctor:'Therapist',
-//         nameClient:'Bill',
-//         urgency:'very important',
-//         age:'29'
-//
-//
-//     },
-//     {
-//         id:'5',
-//         title:'title' ,
-//         description:'cardiologist',
-//         doctor:'Therapist',
-//         nameClient:'Lusia',
-//         urgency:'very important',
-//         age:'29'
-//
-//
-//     },
-// ]
-
-array.forEach((el)=>{
-    if(el.doctor === 'Cardiologist')
-    {  const {id, title, description, doctor, nameClient, urgency,pressure, bodyMassIndex, cardioIllness, age,} = el;
-        new VisitCardiologist(id, title, description, doctor, nameClient, urgency, pressure, bodyMassIndex, cardioIllness, age,).buildingCard()
-    }
-    if(el.doctor === 'Therapist')
-    {  const {id, title, description, doctor, nameClient, urgency, age,} = el;
-        new VisitTherapist(id, title, description, doctor, nameClient, urgency, age,).buildingCard()
-    }
-    if(el.doctor === 'Dentist')
-    {   const {id, title, description, doctor, nameClient, urgency, dateLastVisit,} = el;
-        new VisitDentist(id, title, description, doctor, nameClient, urgency, dateLastVisit ).buildingCard()
-    }
-})
->>>>>>> 0736e64cc6b606515d0923e305310463d0a10cf9
-
-
