@@ -34,7 +34,7 @@ export const getDataForm = () => {
 
                     selectToRequest.doctor = selectValue
 
-                } else if (selectValue === "routine" || selectValue === "priority" || selectValue === "urgent") {
+                } else if (selectValue === "High" || selectValue === "Normal" || selectValue === "Low") {
 
                     selectToRequest.urgency = selectValue
                 } else {
