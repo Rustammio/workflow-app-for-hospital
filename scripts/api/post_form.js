@@ -23,8 +23,9 @@ export const createReqestModal = (requestObject) => {
     .then(response => {
 
       clearForm()
-
-      localStorage.setItem("data", response)
+      const dataItem = JSON.parse(localStorage.getItem("data"))
+      dataItem.push(response)
+      localStorage.setItem("data", JSON.stringify(dataItem))
 
       createCard(response)
       
