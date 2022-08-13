@@ -1,8 +1,8 @@
 export default class Visit {
-    constructor(id, title, description, doctor, nameClient, urgency){
+    constructor(id, title, description, doctor, name, urgency){
         this.id = id;
         this.doctor = doctor;
-        this.nameClient = nameClient;
+        this.nameClient = name;
         this.title = title;
         this.description = description;
         this.urgency = urgency;
@@ -63,7 +63,7 @@ export default class Visit {
         this.card.append(this.cardBody)
         this.cardBody.prepend(this.deleteButton)
         this.cardBody.insertAdjacentHTML(`beforeend`, `
-        <h3 class="card-title">${this.nameClient}</h3>
+        <h3 class="card-title">${this.name}</h3>
         <h3 class="card-title">${this.doctor}</h3>`)
         this.cardBody.append(this.fullCard)
         this.cardBody.append(this.divButtons)
