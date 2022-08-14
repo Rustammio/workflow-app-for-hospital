@@ -210,7 +210,7 @@ class ModalEdit{
         const delUrgency = arrayUrgency.find((el)=>el === this.urgency)
         const indexDelUrgency = arrayUrgency.indexOf(delUrgency)
         arrayUrgency.splice(indexDelUrgency, 1)
-console.log(arrayUrgency)
+        console.log(arrayUrgency)
         this.modalEditBody.insertAdjacentHTML('beforeend',
                 `<select class="form-select form-select select_form" id ="select_urgency_" aria-label=".form-select-sm urgen">
                          <option class ="select_urgency_input"  value="${this.urgency}" selected>${this.urgency}</option>
