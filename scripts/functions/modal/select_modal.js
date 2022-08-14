@@ -1,6 +1,4 @@
-// import { createDentistInstance } from "./dentist.js"
-// import { createCardiologistInstance } from "./cardiologist.js"
-// import { createTherapistInstance } from "./therapist.js"
+
 import {testModal} from "../../classes/class_modal/form_class_modal.js"
 
 export const selectedOption = () => {

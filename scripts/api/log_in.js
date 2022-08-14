@@ -30,8 +30,7 @@ export function logIn() {
             cardContainer.innerHTML = "";
             cardsManage();
             createdButton();
-            // signIn.innerText = "Create Visit";
-            // signIn.setAttribute("data-bs-target", "#createModal");
+
         })
         .catch((e) => {
             console.log(e);

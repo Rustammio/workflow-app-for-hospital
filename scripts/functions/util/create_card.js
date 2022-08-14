@@ -19,4 +19,3 @@ export default function createCard(el){
 
 
 
-// array.forEach((el)=> createCard(el))

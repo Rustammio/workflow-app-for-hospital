@@ -1,11 +1,5 @@
 import Modal from "../class_modal/main_class_modal.js";
-import {createDentistInstance} from "../../modal/dentist.js";
-import {createCardiologistInstance} from "../../modal/cardiologist.js";
-import {createTherapistInstance} from "../../modal/therapist.js";
-import createCard from "../../util/create_card.js";
-
-
-
+import createCard from "../../functions/util/create_card.js";
 
 export default class Visit {
     constructor(id, purpose, description, doctor, name, urgency, status ="open", open = openDialogModal,  del = deleteVisit, edit = editVisit){
