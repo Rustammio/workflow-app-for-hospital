@@ -1,6 +1,6 @@
-import EmptyInput from "../err/emptyInput.js"
-import ChooseSelect from "../err/chooseSelect.js"
-import { createReqestModal } from "../api/post_form.js"
+import EmptyInput from "../../err/emptyInput.js"
+import ChooseSelect from "../../err/chooseSelect.js"
+import { createReqestModal } from "../../api/post_form.js"
 
 export const getDataForm = () => {
     let inpToRequest = {}
