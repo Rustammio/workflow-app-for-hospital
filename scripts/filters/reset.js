@@ -1,4 +1,4 @@
-import createCard from "../util/create_card.js";
+import createCard from "../functions/util/create_card.js";
 import {cardContainer} from "../api/log_in.js";
 
 export  function reset() {

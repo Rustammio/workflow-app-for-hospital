@@ -1,6 +1,6 @@
 // import createCard from "../render/createCard.js";
 import { cardContainer } from "../api/log_in.js";
-import createCard from "../util/create_card.js";
+import createCard from "../functions/util/create_card.js";
 const urgencyInp = document.querySelector(".urgency");
 // console.log(urgencyInp);
 // urgencyInp.addEventListener("change", () => {
@@ -17,12 +17,12 @@ export default function filtration() {
     const data = JSON.parse(localStorage.getItem("data"));
     const filterd = data.filter((el) => {
         if (
-            (el.status.toLowerCase() === statusInp.value.toLowerCase() &&
+            (el.status === statusInp.value.toLowerCase() &&
                 el.urgency.toLowerCase() === urgencyInp.value.toLowerCase()) ||
             (statusInp.value === "" &&
                 el.urgency.toLowerCase() === urgencyInp.value.toLowerCase()) ||
             (urgencyInp.value === "" &&
-                el.status.toLowerCase() === statusInp.value.toLowerCase()) ||
+                el.status === statusInp.value.toLowerCase()) ||
             (statusInp.value === "" && urgencyInp.value === "")
         ) {
             if (textSearch.value === "") {

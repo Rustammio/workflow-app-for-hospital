@@ -1,7 +1,7 @@
 import Modal from "../class_modal/main_class_modal.js";
-import {createDentistInstance} from "../../modal/dentist.js";
-import {createCardiologistInstance} from "../../modal/cardiologist.js";
-import {createTherapistInstance} from "../../modal/therapist.js";
+// import {createDentistInstance} from "../../modal/dentist.js";
+// import {createCardiologistInstance} from "../../modal/cardiologist.js";
+// import {createTherapistInstance} from "../../modal/therapist.js";
 
 // import {formModal} from "../class_modal/form_class_modal";
 export default class Visit {
