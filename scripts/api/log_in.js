@@ -5,7 +5,7 @@ sign.addEventListener('click', logIn)
 import {cardsManage} from "./get_cards.js";
 import InvalidEmailOrPassword from "../err/invalidPOrE.js";
 import EmptyInput from "../err/emptyInput.js";
-import {createdButton} from "../util/create_button.js"
+import {createdButton} from "../functions/util/create_button.js"
 export const cardContainer = document.querySelector('.card-container')
 export function logIn() {
     fetch("https://ajax.test-danit.com/api/v2/cards/login", {

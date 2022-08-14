@@ -1,4 +1,4 @@
-import createCard from "../util/create_card.js";
+import createCard from "../functions/util/create_card.js";
 import {cardContainer} from "./log_in.js";
 export function cardsManage() {
     fetch("https://ajax.test-danit.com/api/v2/cards", {

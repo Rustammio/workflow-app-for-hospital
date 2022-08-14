@@ -1,5 +1,5 @@
-import { clearForm } from "../util/clear_form.js"
-import createCard from "../util/create_card.js"
+import { clearForm } from "../functions/util/clear_form.js"
+import createCard from "../functions/util/create_card.js"
 
 export const createReqestModal = (requestObject) => {
   const token = localStorage.getItem("token")

@@ -1,6 +1,6 @@
-import VisitCardiologist from "../classes/visits/visit_cardiologist.js";
-import VisitTherapist from "../classes/visits/visit_therapis.js";
-import VisitDentist from "../classes/visits/visit_dentist.js";
+import VisitCardiologist from "../../classes/visits/visit_cardiologist.js";
+import VisitTherapist from "../../classes/visits/visit_therapis.js";
+import VisitDentist from "../../classes/visits/visit_dentist.js";
 
 export default function createCard(el){
     

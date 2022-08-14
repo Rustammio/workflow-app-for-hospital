@@ -1,4 +1,4 @@
-import { formModal } from "../classes/class_modal/form_class_modal.js";
+import { formModal } from "../../classes/class_modal/form_class_modal.js";
 
 export const createdButton = () => {
 
