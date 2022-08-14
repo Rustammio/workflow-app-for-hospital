@@ -4,7 +4,7 @@ import { createTherapistInstance } from "./therapist.js"
 
 export const selectedOption = () => {
     const selectModal = document.querySelector(".select_doctor")
-
+    
     selectModal.addEventListener("change", (e) => {
 
         const clearMod = document.querySelector(".client-healthy")
