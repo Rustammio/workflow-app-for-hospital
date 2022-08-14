@@ -1,16 +1,11 @@
-// import createCard from "../render/createCard.js";
+
 import {cardContainer} from "../api/log_in.js";
 import createCard from "../functions/util/create_card.js";
 
 const urgencyInp = document.querySelector(".urgency");
-// console.log(urgencyInp);
-// urgencyInp.addEventListener("change", () => {
-//     console.log(urgencyInp.value);
-// });
+
 const statusInp = document.querySelector(".status");
-// statusInp.addEventListener("change", () => {
-//     console.log(statusInp.value);
-// });
+
 const textSearch = document.querySelector(".textSearch");
 
 export const doctorType = document.querySelector(".doctorType");
@@ -31,8 +26,8 @@ export default function filtration() {
                 return el;
             } else if (textSearch) {
                 if (
-                    el.name.includes(textSearch.value) ||
-                    el.description.includes(textSearch.value)
+                    el.name === textSearch.value ||
+                    el.description ===textSearch.value
                 ) {
                     return el;
                 }
