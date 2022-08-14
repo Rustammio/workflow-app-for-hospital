@@ -26,7 +26,7 @@ export function cardsManage() {
 
             }
             localStorage.removeItem("data");
-            // localStorage.setItem("data", JSON.stringify(arrayOfCards));
+
             localStorage.setItem("data", JSON.stringify(data));
         });
 }
