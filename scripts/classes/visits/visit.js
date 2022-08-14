@@ -1,13 +1,21 @@
+import Modal from "../class_modal/main_class_modal.js";
+import {createDentistInstance} from "../../modal/dentist.js";
+import {createCardiologistInstance} from "../../modal/cardiologist.js";
+import {createTherapistInstance} from "../../modal/therapist.js";
+
+// import {formModal} from "../class_modal/form_class_modal";
 export default class Visit {
-    constructor(id, purpose, description, doctor, name, urgency, open = openDialogModal, del = deleteVisit){
+    constructor(id, purpose, description, doctor, name, urgency, status, open = openDialogModal, del = deleteVisit, edit = editVisit){
         this.id = id;
         this.doctor = doctor;
         this.name = name;
         this.purpose = purpose;
         this.description = description;
         this.urgency = urgency;
+        this.status = status;
         this.openDialogModal = openDialogModal;
         this.deleteVisit = deleteVisit;
+        this.editVisit = editVisit;
 
         this.cardCol = document.createElement('div');
         this.cardCol.setAttribute('class', 'col');
@@ -45,11 +53,14 @@ export default class Visit {
         this.adjustButton.setAttribute('class', 'btn btn-outline-light');
         this.adjustButton.setAttribute('type', 'button');
         this.adjustButton.textContent = 'ADJUST';
+        this.adjustButton.setAttribute('data-bs-toggle', 'modal');
+        this.adjustButton.setAttribute('data-bs-target', '#Modal2');
 
         this.deleteButton.addEventListener('click', this.openDialogModal.bind(this));
         this.showMoreButton.addEventListener('click', this.showMore.bind(this));
         this.hideButton.addEventListener('click', this.hide.bind(this));
-
+        this.adjustButton.addEventListener('click', editVisit.bind(this))
+        // }))
 
 
     }
@@ -135,18 +146,52 @@ function openDialogModal(){
 }
 
 function deleteVisit(){
-    this.cardCol.remove()
-    // const token = localStorage.getItem('token')
-    // fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-    //     method: 'DELETE',
-    //     headers: {
-    //         'Authorization': `Bearer ${token}`
-    //     },
-    // })
-    //     .then(response => response.status)
-    //     .then(data => {
-    //         if('200'){
-    //             this.card.remove()
-    //         }
-    //     })
+    // this.cardCol.remove()
+    const token = localStorage.getItem('token')
+    fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
+    })
+        .then(response => response.status)
+
+        //response response.json()
+
+        .then(data => {
+            if('200'){
+                const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
+                const delObj = dataLocalStorage.find(({id})=>id === this.id)
+                const indexDelObj = dataLocalStorage.indexOf(delObj)
+                dataLocalStorage.splice(indexDelObj, 1);
+                localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+                this.card.remove()
+            }
+        })
+}
+function editVisit(){
+    // formModal
+    console.log(this.doctor);
+    switch (this.doctor) {
+        case "dentist": createDentistInstance()
+            break;
+        case "cardiologist": createCardiologistInstance()
+            break;
+        case "therapist": createTherapistInstance()
+            break;
+        default: console.log("value not selected");
+            break;
+    }
+
+    //select_modal.js
+//     console.log(this.adjustButton)
+//    this.adjustButton.setAttribute('id', `${this.id}`);
+//     const btnEdit = this.adjustButton;
+//         console.log(btnEdit)
+//     const divContainerEdit = document.querySelector(`.container-edit`)
+// // const test =
+//     new Modal('Edit', 'FormCard', 'Save', 'Close').createElements(divContainerEdit)
+// const windEdit = document.getElementById(`ModalEdit`)
+//     console.log(windEdit)
+//     // windEdit.style.display = `block`
 }

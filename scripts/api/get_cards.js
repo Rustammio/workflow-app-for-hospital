@@ -1,5 +1,6 @@
 import createCard from "../functions/util/create_card.js";
 import {cardContainer} from "./log_in.js";
+
 export function cardsManage() {
     fetch("https://ajax.test-danit.com/api/v2/cards", {
         headers: {
@@ -10,7 +11,7 @@ export function cardsManage() {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            // data =[]
+
             if (data.length > 0){
                  data.forEach((el)=> createCard(el))
             }else{

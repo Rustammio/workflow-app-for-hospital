@@ -40,7 +40,8 @@ export default class Modal {
     this.buttonAccept.setAttribute("data-bs-target", `#Modal${this.idButton}`)
     this.buttonAccept.setAttribute("data-bs-toggle", "modal")
     this.buttonAccept.innerText = `${this.Accept}`
-
+    this.buttonAccept.setAttribute("data-bs-toggle", "modal")
+    this.buttonAccept.setAttribute("data-bs-target", `#Modal${this.id}`)
     this.buttonCancel.setAttribute("type", "button")
     this.buttonCancel.setAttribute("data-bs-dismiss", "modal")
     this.buttonCancel.classList.add("btn", "btn-secondary")

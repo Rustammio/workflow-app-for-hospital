@@ -1,6 +1,6 @@
 import Visit from "./visit.js"
 export default class VisitCardiologist extends Visit {
-    constructor(id, purpose, description, doctor, name, urgency, pressure, mass, cardio, age, ){
+    constructor(id, purpose, description, doctor, name, urgency,status, pressure, mass, cardio, age, ){
         super(id, purpose, description, doctor, name, urgency);
         this.pressure = pressure;
         this.mass = mass;
