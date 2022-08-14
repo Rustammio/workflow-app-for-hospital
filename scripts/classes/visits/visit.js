@@ -1,5 +1,6 @@
 import Modal from "../class_modal/main_class_modal.js";
 import createCard from "../../functions/util/create_card.js";
+import {cardContainer} from "../../api/log_in.js";
 
 export default class Visit {
     constructor(id, purpose, description, doctor, name, urgency, status ="open", open = openDialogModal,  del = deleteVisit, edit = editVisit){
@@ -147,9 +148,7 @@ function deleteVisit(){
         })
 }
 
-function createCardiologistEdit(){
 
-}
 class ModalEdit{
     constructor(id, purpose, description, doctor, name, urgency, status, create = createInputEditModal, put = putEdit ) {
         this.id = id;
@@ -289,7 +288,8 @@ function putEdit(){
 
 
     const body = document.querySelector(".modal-edit-body")
-    const inputList = body.querySelectorAll('input')
+    const inputList = [...body.querySelectorAll('input')]
+
     console.log(inputList)
     inputList.forEach((el) => {
         console.log(el.value)})
@@ -297,6 +297,9 @@ function putEdit(){
 
     const urg = document.getElementById('select_urgency_')
     const selectUrg = urg.value;
+    console.log(typeof this.id)
+    console.log(typeof inputList[0].value)
+    console.log(typeof selectUrg)
   if(selectDoctor === 'dentist'){
       const token = localStorage.getItem('token')
       fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
@@ -307,29 +310,33 @@ function putEdit(){
           },
           body: JSON.stringify({
               id: this.id,
-              name:inputList[2],
-              purpose: inputList[0],
-              description: inputList[1],
+              name:inputList[2].value,
+              purpose: inputList[0].value,
+              description: inputList[1].value,
               doctor: selectDoctor,
               urgency: selectUrg,
-              visit: inputList[3],
-              status: 'open',
+              visit: inputList[3].value,
+              status: this.status,
           })
       })
           .then(response => response.json())
-          .then(response => console.log(response))
-          .then(data => {
+
+          .then(response => {
               if('200'){
 
                   const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
                   const delObj = dataLocalStorage.find(({id})=>id === this.id)
                   const indexDelObj = dataLocalStorage.indexOf(delObj)
                   dataLocalStorage.splice(indexDelObj, 1);
-                  dataLocalStorage.unshift(data)
-                  localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+                  dataLocalStorage.unshift(response)
+                  cardContainer.innerHTML=''
                   dataLocalStorage.forEach(el=>{
                       createCard(el)
                   })
+
+                  localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+                  console.log(dataLocalStorage)
+
               }
   })}
 
@@ -343,30 +350,33 @@ function putEdit(){
             },
             body: JSON.stringify({
                 id: this.id,
-                name:inputList[2],
-                purpose: inputList[0],
-                description: inputList[1],
+                name:inputList[2].value,
+                purpose: inputList[0].value,
+                description: inputList[1].value,
                 doctor: selectDoctor,
                 urgency: selectUrg,
-                age: inputList[3],
-                status: 'open',
+                age: inputList[3].value,
+                status: this.status,
             })
         })
             .then(response => response.json())
-            .then(response => console.log(response))
+            // .then(response => console.log(response))
 
-            .then(data => {
+            .then(response => {
                 if('200'){
 
                     const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
                     const delObj = dataLocalStorage.find(({id})=>id === this.id)
                     const indexDelObj = dataLocalStorage.indexOf(delObj)
                     dataLocalStorage.splice(indexDelObj, 1);
-                    dataLocalStorage.unshift(data)
-                    localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+                    dataLocalStorage.unshift(response)
+                    cardContainer.innerHTML=''
                     dataLocalStorage.forEach(el=>{
                         createCard(el)
                     })
+                    localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+                    console.log(dataLocalStorage)
+
 
                 }
             })
@@ -382,32 +392,35 @@ function putEdit(){
             },
             body: JSON.stringify({
                 id: this.id,
-                name:inputList[2],
-                purpose: inputList[0],
-                description: inputList[1],
+                name:inputList[2].value,
+                purpose: inputList[0].value,
+                description: inputList[1].value,
                 doctor: selectDoctor,
                 urgency: selectUrg,
-                mass: inputList[3],
-                cardio: inputList[4],
-                pressure: inputList[5],
-                age: inputList[6],
-                status: 'open',
+                mass: inputList[3].value,
+                cardio: inputList[4].value,
+                pressure: inputList[5].value,
+                age: inputList[6].value,
+                status: this.status,
             })
         })
             .then(response => response.json())
-            .then(response => console.log(response))
-            .then(data => {
+
+            .then(response => {
                 if('200'){
 
                     const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
                     const delObj = dataLocalStorage.find(({id})=>id === this.id)
                     const indexDelObj = dataLocalStorage.indexOf(delObj)
                     dataLocalStorage.splice(indexDelObj, 1);
-                    dataLocalStorage.unshift(data)
-                    localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+                    dataLocalStorage.unshift(response)
+                    cardContainer.innerHTML=''
                     dataLocalStorage.forEach(el=>{
                         createCard(el)
                     })
+                    localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+                    console.log(dataLocalStorage)
+
                 }
             })
     }
