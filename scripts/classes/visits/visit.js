@@ -1,6 +1,8 @@
-import Modal from "../class_modal/main_class_modal.js";
-import createCard from "../../functions/util/create_card.js";
-import {cardContainer} from "../../api/log_in.js";
+import putEdit from "../../api/put_edit_visit.js";
+import deleteVisit from "../../api/delete_card.js";
+import openDialogModal from "../../functions/modal/open_dialog_modal.js";
+
+
 
 export default class Visit {
     constructor(id, purpose, description, doctor, name, urgency, status ="open", open = openDialogModal,  del = deleteVisit, edit = editVisit){
@@ -58,8 +60,6 @@ export default class Visit {
         this.showMoreButton.addEventListener('click', this.showMore.bind(this));
         this.hideButton.addEventListener('click', this.hide.bind(this));
         this.editButton.addEventListener('click', this.editVisit.bind(this))
-        // }))
-
 
     }
 
@@ -93,7 +93,6 @@ export default class Visit {
         this.hideButton.style.display = 'block';
     }
 
-
     hide(){
         this.fullCard.innerHTML ='';
         this.infoPatient.innerHTML ='';
@@ -101,52 +100,46 @@ export default class Visit {
         this.hideButton.style.display = 'none';
     }
 
-
-
-    adjust(){
-
-    }
-
 }
 
-function openDialogModal(){
-    this.modalDialogDeleteText = document.querySelector('.modal-dialog-delete-text')
-    this.modalDialogDeleteText.innerHTML =
-        `<p> ${this.name} will not see a ${this.doctor}.<br> Are you sure?</p>`
-    this.modalDialogDeleteFooter = document.querySelector('.modal-dialog-delete-footer')
-    this.modalDialogDeleteFooter.innerHTML =
-        `<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">CLOSE</button>
-    <button type="button" class="btn btn-outline-light dialog-delete"  data-bs-dismiss="modal">I\`m sure, DELETE</button>`
-    this.modalDialogDeleteBtn =document.querySelector('.dialog-delete')
-    this.modalDialogDeleteBtn.addEventListener('click', this.deleteVisit.bind(this))
+// function openDialogModal(){
+//     this.modalDialogDeleteText = document.querySelector('.modal-dialog-delete-text')
+//     this.modalDialogDeleteText.innerHTML =
+//         `<p> ${this.name} will not see a ${this.doctor}.<br> Are you sure?</p>`
+//     this.modalDialogDeleteFooter = document.querySelector('.modal-dialog-delete-footer')
+//     this.modalDialogDeleteFooter.innerHTML =
+//         `<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">CLOSE</button>
+//     <button type="button" class="btn btn-outline-light dialog-delete"  data-bs-dismiss="modal">I\`m sure, DELETE</button>`
+//     this.modalDialogDeleteBtn =document.querySelector('.dialog-delete')
+//     this.modalDialogDeleteBtn.addEventListener('click', this.deleteVisit.bind(this))
+//
+// }
 
-}
-
-function deleteVisit(){
-    const token = localStorage.getItem('token')
-    fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-        method: 'DELETE',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-    })
-        .then(response => response.status)
-
-        //response response.json()
-
-        .then(data => {
-            if('200'){
-                console.log(this.card)
-                this.card.remove()
-                const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
-                const delObj = dataLocalStorage.find(({id})=>id === this.id)
-                const indexDelObj = dataLocalStorage.indexOf(delObj)
-                dataLocalStorage.splice(indexDelObj, 1);
-                localStorage.setItem('data', JSON.stringify(dataLocalStorage))
-                this.card.remove()
-            }
-        })
-}
+// function deleteVisit(){
+//     const token = localStorage.getItem('token')
+//     fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
+//         method: 'DELETE',
+//         headers: {
+//             'Authorization': `Bearer ${token}`
+//         },
+//     })
+//         .then(response => response.status)
+//
+//         //response response.json()
+//
+//         .then(data => {
+//             if('200'){
+//                 console.log(this.card)
+//                 this.card.remove()
+//                 const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
+//                 const delObj = dataLocalStorage.find(({id})=>id === this.id)
+//                 const indexDelObj = dataLocalStorage.indexOf(delObj)
+//                 dataLocalStorage.splice(indexDelObj, 1);
+//                 localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+//                 this.card.remove()
+//             }
+//         })
+// }
 
 
 class ModalEdit{
@@ -182,9 +175,9 @@ class ModalEdit{
         this.selectDoctorEdit = document.querySelector('.select_doctor_edit')
         console.log(this.selectDoctorEdit)
         this.selectDoctorEdit.addEventListener('change',(el)=> {
-            // this.value = el.target.value;
+
             console.log(el.target.value);
-            // this.change.bind(this);
+
             switch (el.target.value) {
                 case "dentist":
                     new ModalEditDentist(this.id, this.purpose, this.description, this.doctor="dentist", this.name, this.urgency,this.status, this.visit ).buildingModalEditDentist()
@@ -215,7 +208,7 @@ class ModalEdit{
                 `<select class="form-select form-select select_form" id ="select_urgency_" aria-label=".form-select-sm urgen">
                          <option class ="select_urgency_input"  value="${this.urgency}" selected>${this.urgency}</option>
                          <option class ="select_urgency_input" value="${arrayUrgency[0]}">${arrayUrgency[0]}</option>
-                         <option class ="select_urgency_input" value="${arrayUrgency[1]}">${arrayUrgency[1]}</option>  
+                         <option class ="select_urgency_input" value="${arrayUrgency[1]}">${arrayUrgency[1]}</option>
                       </select>`)
 
     }
@@ -282,151 +275,151 @@ function editVisit(){
 
 
 
-function putEdit(){
-    const doctor = document.getElementById('select_doctor_')
-    const selectDoctor = doctor.value;
-
-
-    const body = document.querySelector(".modal-edit-body")
-    const inputList = [...body.querySelectorAll('input')]
-
-    console.log(inputList)
-    inputList.forEach((el) => {
-        console.log(el.value)})
-
-
-    const urg = document.getElementById('select_urgency_')
-    const selectUrg = urg.value;
-    console.log(typeof this.id)
-    console.log(typeof inputList[0].value)
-    console.log(typeof selectUrg)
-  if(selectDoctor === 'dentist'){
-      const token = localStorage.getItem('token')
-      fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-          method: 'PUT',
-          headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify({
-              id: this.id,
-              name:inputList[2].value,
-              purpose: inputList[0].value,
-              description: inputList[1].value,
-              doctor: selectDoctor,
-              urgency: selectUrg,
-              visit: inputList[3].value,
-              status: this.status,
-          })
-      })
-          .then(response => response.json())
-
-          .then(response => {
-              if('200'){
-
-                  const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
-                  const delObj = dataLocalStorage.find(({id})=>id === this.id)
-                  const indexDelObj = dataLocalStorage.indexOf(delObj)
-                  dataLocalStorage.splice(indexDelObj, 1);
-                  dataLocalStorage.unshift(response)
-                  cardContainer.innerHTML=''
-                  dataLocalStorage.forEach(el=>{
-                      createCard(el)
-                  })
-
-                  localStorage.setItem('data', JSON.stringify(dataLocalStorage))
-                  console.log(dataLocalStorage)
-
-              }
-  })}
-
-    if(selectDoctor === 'therapist'){
-        const token = localStorage.getItem('token')
-        fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                id: this.id,
-                name:inputList[2].value,
-                purpose: inputList[0].value,
-                description: inputList[1].value,
-                doctor: selectDoctor,
-                urgency: selectUrg,
-                age: inputList[3].value,
-                status: this.status,
-            })
-        })
-            .then(response => response.json())
-            // .then(response => console.log(response))
-
-            .then(response => {
-                if('200'){
-
-                    const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
-                    const delObj = dataLocalStorage.find(({id})=>id === this.id)
-                    const indexDelObj = dataLocalStorage.indexOf(delObj)
-                    dataLocalStorage.splice(indexDelObj, 1);
-                    dataLocalStorage.unshift(response)
-                    cardContainer.innerHTML=''
-                    dataLocalStorage.forEach(el=>{
-                        createCard(el)
-                    })
-                    localStorage.setItem('data', JSON.stringify(dataLocalStorage))
-                    console.log(dataLocalStorage)
-
-
-                }
-            })
-    }
-
-    if(selectDoctor === 'cardiologist'){
-        const token = localStorage.getItem('token')
-        fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                id: this.id,
-                name:inputList[2].value,
-                purpose: inputList[0].value,
-                description: inputList[1].value,
-                doctor: selectDoctor,
-                urgency: selectUrg,
-                mass: inputList[3].value,
-                cardio: inputList[4].value,
-                pressure: inputList[5].value,
-                age: inputList[6].value,
-                status: this.status,
-            })
-        })
-            .then(response => response.json())
-
-            .then(response => {
-                if('200'){
-
-                    const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
-                    const delObj = dataLocalStorage.find(({id})=>id === this.id)
-                    const indexDelObj = dataLocalStorage.indexOf(delObj)
-                    dataLocalStorage.splice(indexDelObj, 1);
-                    dataLocalStorage.unshift(response)
-                    cardContainer.innerHTML=''
-                    dataLocalStorage.forEach(el=>{
-                        createCard(el)
-                    })
-                    localStorage.setItem('data', JSON.stringify(dataLocalStorage))
-                    console.log(dataLocalStorage)
-
-                }
-            })
-    }
-
-
-}
+// function putEdit(){
+//     const doctor = document.getElementById('select_doctor_')
+//     const selectDoctor = doctor.value;
+//
+//
+//     const body = document.querySelector(".modal-edit-body")
+//     const inputList = [...body.querySelectorAll('input')]
+//
+//     console.log(inputList)
+//     inputList.forEach((el) => {
+//         console.log(el.value)})
+//
+//
+//     const urg = document.getElementById('select_urgency_')
+//     const selectUrg = urg.value;
+//     console.log(typeof this.id)
+//     console.log(typeof inputList[0].value)
+//     console.log(typeof selectUrg)
+//   if(selectDoctor === 'dentist'){
+//       const token = localStorage.getItem('token')
+//       fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
+//           method: 'PUT',
+//           headers: {
+//               'Content-Type': 'application/json',
+//               'Authorization': `Bearer ${token}`
+//           },
+//           body: JSON.stringify({
+//               id: this.id,
+//               name:inputList[2].value,
+//               purpose: inputList[0].value,
+//               description: inputList[1].value,
+//               doctor: selectDoctor,
+//               urgency: selectUrg,
+//               visit: inputList[3].value,
+//               status: this.status,
+//           })
+//       })
+//           .then(response => response.json())
+//
+//           .then(response => {
+//               if('200'){
+//
+//                   const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
+//                   const delObj = dataLocalStorage.find(({id})=>id === this.id)
+//                   const indexDelObj = dataLocalStorage.indexOf(delObj)
+//                   dataLocalStorage.splice(indexDelObj, 1);
+//                   dataLocalStorage.unshift(response)
+//                   cardContainer.innerHTML=''
+//                   dataLocalStorage.forEach(el=>{
+//                       createCard(el)
+//                   })
+//
+//                   localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+//                   console.log(dataLocalStorage)
+//
+//               }
+//   })}
+//
+//     if(selectDoctor === 'therapist'){
+//         const token = localStorage.getItem('token')
+//         fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
+//             method: 'PUT',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`
+//             },
+//             body: JSON.stringify({
+//                 id: this.id,
+//                 name:inputList[2].value,
+//                 purpose: inputList[0].value,
+//                 description: inputList[1].value,
+//                 doctor: selectDoctor,
+//                 urgency: selectUrg,
+//                 age: inputList[3].value,
+//                 status: this.status,
+//             })
+//         })
+//             .then(response => response.json())
+//             // .then(response => console.log(response))
+//
+//             .then(response => {
+//                 if('200'){
+//
+//                     const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
+//                     const delObj = dataLocalStorage.find(({id})=>id === this.id)
+//                     const indexDelObj = dataLocalStorage.indexOf(delObj)
+//                     dataLocalStorage.splice(indexDelObj, 1);
+//                     dataLocalStorage.unshift(response)
+//                     cardContainer.innerHTML=''
+//                     dataLocalStorage.forEach(el=>{
+//                         createCard(el)
+//                     })
+//                     localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+//                     console.log(dataLocalStorage)
+//
+//
+//                 }
+//             })
+//     }
+//
+//     if(selectDoctor === 'cardiologist'){
+//         const token = localStorage.getItem('token')
+//         fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
+//             method: 'PUT',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`
+//             },
+//             body: JSON.stringify({
+//                 id: this.id,
+//                 name:inputList[2].value,
+//                 purpose: inputList[0].value,
+//                 description: inputList[1].value,
+//                 doctor: selectDoctor,
+//                 urgency: selectUrg,
+//                 mass: inputList[3].value,
+//                 cardio: inputList[4].value,
+//                 pressure: inputList[5].value,
+//                 age: inputList[6].value,
+//                 status: this.status,
+//             })
+//         })
+//             .then(response => response.json())
+//
+//             .then(response => {
+//                 if('200'){
+//
+//                     const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
+//                     const delObj = dataLocalStorage.find(({id})=>id === this.id)
+//                     const indexDelObj = dataLocalStorage.indexOf(delObj)
+//                     dataLocalStorage.splice(indexDelObj, 1);
+//                     dataLocalStorage.unshift(response)
+//                     cardContainer.innerHTML=''
+//                     dataLocalStorage.forEach(el=>{
+//                         createCard(el)
+//                     })
+//                     localStorage.setItem('data', JSON.stringify(dataLocalStorage))
+//                     console.log(dataLocalStorage)
+//
+//                 }
+//             })
+//     }
+//
+//
+// }
 
 
 const createInputEditModal = (arrayOptions, inputWrapper) => {
