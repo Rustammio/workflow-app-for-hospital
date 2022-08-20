@@ -9,6 +9,8 @@ export const clearForm = () => {
     })
     
     selectList.forEach(select => {
-        select.getAttribute("selected")
+       
+        select.options[0].selected = true;
     })
+   
 }

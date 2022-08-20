@@ -23,6 +23,7 @@ export default class CreateModal extends Modal {
         `)
 
     this.buttonAccept.classList.add("submit")
+    this.buttonCancel.classList.add('exit_button')
 
     this.modalBody.append(this.selectDoctors)
   }

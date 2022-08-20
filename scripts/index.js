@@ -5,6 +5,7 @@ import {selectedOption} from './functions/modal/select_modal.js'
 import {getDataForm} from "./functions/modal/get_data_form.js"
 import {cardsManage} from "./api/get_cards.js";
 import {createdButton} from "./functions/util/create_button.js";
+import { closedModalForm } from "./functions/util/exit_button.js"
 
 const sign = document.querySelector('.sign');
 const search = document.querySelector(".search");
@@ -15,6 +16,8 @@ sign.addEventListener('click', logIn);
 dragula([document.querySelector(".card-container")]);
 selectedOption();
 getDataForm();
+closedModalForm();
+
 window.addEventListener('load', () => {
     if (localStorage.getItem('token') !== null) {
         cardContainer.innerHTML = '';

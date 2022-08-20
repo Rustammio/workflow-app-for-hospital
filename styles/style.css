@@ -106,9 +106,6 @@ video {
     color: rgb(205, 204, 204)
 }
 
-input:invalid:required{
-    border-color:rgb(227, 78, 78)
-}
 
 #floatingSelectGrid {
 
@@ -134,10 +131,7 @@ input:invalid:required{
     position: relative;
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0736e64cc6b606515d0923e305310463d0a10cf9
 
 .search-zone {
     margin-top: 5vh;
