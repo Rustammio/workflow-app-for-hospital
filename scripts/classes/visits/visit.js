@@ -102,44 +102,7 @@ export default class Visit {
 
 }
 
-// function openDialogModal(){
-//     this.modalDialogDeleteText = document.querySelector('.modal-dialog-delete-text')
-//     this.modalDialogDeleteText.innerHTML =
-//         `<p> ${this.name} will not see a ${this.doctor}.<br> Are you sure?</p>`
-//     this.modalDialogDeleteFooter = document.querySelector('.modal-dialog-delete-footer')
-//     this.modalDialogDeleteFooter.innerHTML =
-//         `<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">CLOSE</button>
-//     <button type="button" class="btn btn-outline-light dialog-delete"  data-bs-dismiss="modal">I\`m sure, DELETE</button>`
-//     this.modalDialogDeleteBtn =document.querySelector('.dialog-delete')
-//     this.modalDialogDeleteBtn.addEventListener('click', this.deleteVisit.bind(this))
-//
-// }
 
-// function deleteVisit(){
-//     const token = localStorage.getItem('token')
-//     fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-//         method: 'DELETE',
-//         headers: {
-//             'Authorization': `Bearer ${token}`
-//         },
-//     })
-//         .then(response => response.status)
-//
-//         //response response.json()
-//
-//         .then(data => {
-//             if('200'){
-//                 console.log(this.card)
-//                 this.card.remove()
-//                 const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
-//                 const delObj = dataLocalStorage.find(({id})=>id === this.id)
-//                 const indexDelObj = dataLocalStorage.indexOf(delObj)
-//                 dataLocalStorage.splice(indexDelObj, 1);
-//                 localStorage.setItem('data', JSON.stringify(dataLocalStorage))
-//                 this.card.remove()
-//             }
-//         })
-// }
 
 
 class ModalEdit{
@@ -157,10 +120,16 @@ class ModalEdit{
         this.modalEditFooter = document.querySelector('.modal-edit-footer');
         this.modalEditFooter.innerHTML=
             `<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">CLOSE</button>
-    <button type="button" class="btn btn-outline-light modal-edit-save"  data-bs-dismiss="modal">SAVE</button>`
+    <button type="button" class="btn btn-outline-light modal-edit-save" data-bs-dismiss="modal" >SAVE</button>`
         this.modalEditSaveBtn = document.querySelector(`.modal-edit-save`)
         this.modalEditSaveBtn.innerText='SAVE'
-        this.modalEditSaveBtn.addEventListener('click',this.putEdit.bind(this))
+        this.modalEditSaveBtn.addEventListener('click',
+
+
+
+            this.putEdit.bind(this)
+    )
+
 
         const arrayDoctor = ['cardiologist', 'therapist', 'dentist' ]
         const delDoctor = arrayDoctor.find((el)=>el === this.doctor)
@@ -199,6 +168,7 @@ class ModalEdit{
 
         const arrayModalEditOptions = [["purpose visit",this.purpose], ["description problem", this.description], ["name", this.name]]
         this.createInputEditModal(arrayModalEditOptions,this.modalEditBody)
+
         const arrayUrgency = ['High', 'Normal', 'Low' ]
         const delUrgency = arrayUrgency.find((el)=>el === this.urgency)
         const indexDelUrgency = arrayUrgency.indexOf(delUrgency)
@@ -210,6 +180,7 @@ class ModalEdit{
                          <option class ="select_urgency_input" value="${arrayUrgency[0]}">${arrayUrgency[0]}</option>
                          <option class ="select_urgency_input" value="${arrayUrgency[1]}">${arrayUrgency[1]}</option>
                       </select>`)
+
 
     }
 
@@ -275,151 +246,7 @@ function editVisit(){
 
 
 
-// function putEdit(){
-//     const doctor = document.getElementById('select_doctor_')
-//     const selectDoctor = doctor.value;
-//
-//
-//     const body = document.querySelector(".modal-edit-body")
-//     const inputList = [...body.querySelectorAll('input')]
-//
-//     console.log(inputList)
-//     inputList.forEach((el) => {
-//         console.log(el.value)})
-//
-//
-//     const urg = document.getElementById('select_urgency_')
-//     const selectUrg = urg.value;
-//     console.log(typeof this.id)
-//     console.log(typeof inputList[0].value)
-//     console.log(typeof selectUrg)
-//   if(selectDoctor === 'dentist'){
-//       const token = localStorage.getItem('token')
-//       fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-//           method: 'PUT',
-//           headers: {
-//               'Content-Type': 'application/json',
-//               'Authorization': `Bearer ${token}`
-//           },
-//           body: JSON.stringify({
-//               id: this.id,
-//               name:inputList[2].value,
-//               purpose: inputList[0].value,
-//               description: inputList[1].value,
-//               doctor: selectDoctor,
-//               urgency: selectUrg,
-//               visit: inputList[3].value,
-//               status: this.status,
-//           })
-//       })
-//           .then(response => response.json())
-//
-//           .then(response => {
-//               if('200'){
-//
-//                   const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
-//                   const delObj = dataLocalStorage.find(({id})=>id === this.id)
-//                   const indexDelObj = dataLocalStorage.indexOf(delObj)
-//                   dataLocalStorage.splice(indexDelObj, 1);
-//                   dataLocalStorage.unshift(response)
-//                   cardContainer.innerHTML=''
-//                   dataLocalStorage.forEach(el=>{
-//                       createCard(el)
-//                   })
-//
-//                   localStorage.setItem('data', JSON.stringify(dataLocalStorage))
-//                   console.log(dataLocalStorage)
-//
-//               }
-//   })}
-//
-//     if(selectDoctor === 'therapist'){
-//         const token = localStorage.getItem('token')
-//         fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-//             method: 'PUT',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ${token}`
-//             },
-//             body: JSON.stringify({
-//                 id: this.id,
-//                 name:inputList[2].value,
-//                 purpose: inputList[0].value,
-//                 description: inputList[1].value,
-//                 doctor: selectDoctor,
-//                 urgency: selectUrg,
-//                 age: inputList[3].value,
-//                 status: this.status,
-//             })
-//         })
-//             .then(response => response.json())
-//             // .then(response => console.log(response))
-//
-//             .then(response => {
-//                 if('200'){
-//
-//                     const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
-//                     const delObj = dataLocalStorage.find(({id})=>id === this.id)
-//                     const indexDelObj = dataLocalStorage.indexOf(delObj)
-//                     dataLocalStorage.splice(indexDelObj, 1);
-//                     dataLocalStorage.unshift(response)
-//                     cardContainer.innerHTML=''
-//                     dataLocalStorage.forEach(el=>{
-//                         createCard(el)
-//                     })
-//                     localStorage.setItem('data', JSON.stringify(dataLocalStorage))
-//                     console.log(dataLocalStorage)
-//
-//
-//                 }
-//             })
-//     }
-//
-//     if(selectDoctor === 'cardiologist'){
-//         const token = localStorage.getItem('token')
-//         fetch(`https://ajax.test-danit.com/api/v2/cards/${this.id}`, {
-//             method: 'PUT',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ${token}`
-//             },
-//             body: JSON.stringify({
-//                 id: this.id,
-//                 name:inputList[2].value,
-//                 purpose: inputList[0].value,
-//                 description: inputList[1].value,
-//                 doctor: selectDoctor,
-//                 urgency: selectUrg,
-//                 mass: inputList[3].value,
-//                 cardio: inputList[4].value,
-//                 pressure: inputList[5].value,
-//                 age: inputList[6].value,
-//                 status: this.status,
-//             })
-//         })
-//             .then(response => response.json())
-//
-//             .then(response => {
-//                 if('200'){
-//
-//                     const dataLocalStorage = JSON.parse(localStorage.getItem('data'))
-//                     const delObj = dataLocalStorage.find(({id})=>id === this.id)
-//                     const indexDelObj = dataLocalStorage.indexOf(delObj)
-//                     dataLocalStorage.splice(indexDelObj, 1);
-//                     dataLocalStorage.unshift(response)
-//                     cardContainer.innerHTML=''
-//                     dataLocalStorage.forEach(el=>{
-//                         createCard(el)
-//                     })
-//                     localStorage.setItem('data', JSON.stringify(dataLocalStorage))
-//                     console.log(dataLocalStorage)
-//
-//                 }
-//             })
-//     }
-//
-//
-// }
+
 
 
 const createInputEditModal = (arrayOptions, inputWrapper) => {
@@ -430,18 +257,23 @@ const createInputEditModal = (arrayOptions, inputWrapper) => {
             const clientHealthyItem = document.createElement("div")
             clientHealthyItem.classList.add('input-group', 'mb-3')
             clientHealthyItem.insertAdjacentHTML('beforeend', `
-      <input type="text" class="form-control ${field[0]}" placeholder=${field[0]} value="${field[1]}" aria-label="${field[0]}" aria-describedby="basic-addon2"  required>
+      <input  type="text" class="form-control ${field[0]}" placeholder=${field[0]} id="validation${field[0]}" required value="${field[1]}" aria-label="${field[0]}" aria-describedby="basic-addon2"  >
       <span class="input-group-text" id="basic-addon2">${field[0]}</span>
       `)
 
             inputWrapper.append(clientHealthyItem)
+            inputWrapper.insertAdjacentHTML('beforeend', `<div>Please, enter ${field[0]}</div>`)
+
         } else {const clientHealthyItem = document.createElement("div")
             clientHealthyItem.classList.add('input-group', 'mb-3')
             clientHealthyItem.insertAdjacentHTML('beforeend', `
-      <input type="text" class="form-control" placeholder=${field[0]}  aria-describedby="basic-addon2" aria-label="${field[0]}" required>
+      <input type="text" class="form-control" placeholder=${field[0]} id="validation${field[0]}" required aria-describedby="basic-addon2" aria-label="${field[0]}" >
       <span class="input-group-text" id="basic-addon2">${field[0]}</span>
+           
       `)
+
             inputWrapper.append(clientHealthyItem)
+            inputWrapper.insertAdjacentHTML('beforeend', `<div>Please, enter ${field[0]}</div>`)
         }
 
     })

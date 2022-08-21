@@ -106,9 +106,10 @@ video {
     color: rgb(205, 204, 204)
 }
 
-input:invalid:required{
-    border-color:rgb(227, 78, 78)
-}
+/*input:invalid:required{*/
+
+/*    border: 3px solid white;*/
+/*}*/
 
 #floatingSelectGrid {
 
@@ -280,4 +281,7 @@ input:invalid:required{
     position: absolute;
     top: 5px;
     right: 5px;
+}
+.input-invalid {
+    /*display: none;*/
 }
