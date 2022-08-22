@@ -1,5 +1,6 @@
 import { clearForm } from "../functions/util/clear_form.js"
-import createCard from "../functions/util/create_card.js"
+// import createCard from "../functions/util/create_card.js"
+import {cardsManage} from "./get_cards.js"
 
 export const createReqestModal = (requestObject) => {
   const token = localStorage.getItem("token")
@@ -27,7 +28,7 @@ export const createReqestModal = (requestObject) => {
       dataItem.push(response)
       localStorage.setItem("data", JSON.stringify(dataItem))
 
-      createCard(response)
+      cardsManage()
       
       return response
     }).catch(err => {
