@@ -1,17 +1,48 @@
 import {cardContainer} from "./log_in.js";
 import createCard from "../functions/util/create_card.js";
+import EmptyInput from "../err/emptyInput.js";
 
 export default function putEdit(){
+
+    (( )=> {
+        console.log(this.modalEditBody.checkValidity())
+        //
+        // if(this.modalEditBody.checkValidity()){
+        //
+        //    throw new EmptyInput
+        // }
+        this.modalEditBody.classList.add('was-validated'),false
+    })()
+
+
     const doctor = document.getElementById('select_doctor_')
     const selectDoctor = doctor.value;
 
-
     const body = document.querySelector(".modal-edit-body")
     const inputList = [...body.querySelectorAll('input')]
-
     console.log(inputList)
-    inputList.forEach((el) => {
-        console.log(el.value)})
+
+const arr = inputList.map(el=>
+{
+    return el.value
+}
+    )
+console.log(arr)
+    const arrEmp = arr.filter(el => el === "")
+console.log(arrEmp)
+    if(arrEmp.length === 0){
+
+        console.log(this.modalEditSaveBtn)
+        this.modalEditSaveBtn.setAttribute('data-bs-dismiss', 'modal');
+        (()=>{this.modalEditSaveBtn.click()})()
+
+    } else {
+        console.log('EMPTYYY')
+        throw new EmptyInput
+
+    }
+
+
 
 
     const urg = document.getElementById('select_urgency_')
