@@ -6,46 +6,40 @@ export default function putEdit(){
 
     (( )=> {
         console.log(this.modalEditBody.checkValidity())
-
-
-
         //
         // if(this.modalEditBody.checkValidity()){
         //
         //    throw new EmptyInput
         // }
-
         this.modalEditBody.classList.add('was-validated'),false
-
-
     })()
-
-
-
-
-
 
 
     const doctor = document.getElementById('select_doctor_')
     const selectDoctor = doctor.value;
 
-
     const body = document.querySelector(".modal-edit-body")
     const inputList = [...body.querySelectorAll('input')]
-const arrEmpty = inputList.map(el=>
-{if (el.value === ""){
-    return el
+    console.log(inputList)
+
+const arr = inputList.map(el=>
+{
+    return el.value
 }
-
-    }
     )
+console.log(arr)
+    const arrEmp = arr.filter(el => el === "")
+console.log(arrEmp)
+    if(arrEmp.length === 0){
 
-    if(arrEmpty.length>0){
-console.log('EMPTYYY')
+        console.log(this.modalEditSaveBtn)
+        this.modalEditSaveBtn.setAttribute('data-bs-dismiss', 'modal');
+        (()=>{this.modalEditSaveBtn.click()})()
 
-      throw new EmptyInput
     } else {
-        this.modalEditSaveBtn.setAttribute('data-bs-dismiss', 'modal')
+        console.log('EMPTYYY')
+        throw new EmptyInput
+
     }
 
 

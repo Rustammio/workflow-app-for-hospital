@@ -117,18 +117,14 @@ class ModalEdit{
         this.createInputEditModal = create;
         this.putEdit = put;
         this.modalEditBody = document.querySelector('.modal-edit-body');
+        this.modalEditBody.innerHTML = '';
         this.modalEditFooter = document.querySelector('.modal-edit-footer');
         this.modalEditFooter.innerHTML=
             `<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">CLOSE</button>
-    <button type="button" class="btn btn-outline-light modal-edit-save" data-bs-dismiss="modal" >SAVE</button>`
+    <button type="button" class="btn btn-outline-light modal-edit-save"  >SAVE</button>`
         this.modalEditSaveBtn = document.querySelector(`.modal-edit-save`)
         this.modalEditSaveBtn.innerText='SAVE'
-        this.modalEditSaveBtn.addEventListener('click',
-
-
-
-            this.putEdit.bind(this)
-    )
+        this.modalEditSaveBtn.addEventListener('click', this.putEdit.bind(this))
 
 
         const arrayDoctor = ['cardiologist', 'therapist', 'dentist' ]
@@ -149,19 +145,30 @@ class ModalEdit{
 
             switch (el.target.value) {
                 case "dentist":
-                    new ModalEditDentist(this.id, this.purpose, this.description, this.doctor="dentist", this.name, this.urgency,this.status, this.visit ).buildingModalEditDentist()
+                    makeEditDentist()
+                    // new ModalEditDentist(this.id, this.purpose, this.description, this.doctor="dentist", this.name, this.urgency,this.status, this.visit ).buildingModalEditDentist()
                     break;
                 case "cardiologist":
-                    new ModalEditCardiologist(this.id, this.purpose, this.description, this.doctor="cardiologist", this.name, this.urgency, this.status, this.pressure, this.mass, this.cardio, this.age,).buildingModalEditCardiologist()
+                    makeEditCardio()
+                    // new ModalEditCardiologist(this.id, this.purpose, this.description, this.doctor="cardiologist", this.name, this.urgency, this.status, this.pressure, this.mass, this.cardio, this.age,).buildingModalEditCardiologist()
                     break;
                 case "therapist":
-                    new ModalEditTherapist(this.id, this.purpose, this.description, this.doctor="therapist", this.name, this.urgency, this.status, this.age,).buildingModalEditTherapist()
+                    makeEditTherapist()
+                    // new ModalEditTherapist(this.id, this.purpose, this.description, this.doctor="therapist", this.name, this.urgency, this.status, this.age,).buildingModalEditTherapist()
                     break;
                 }
         })
 
 
-
+function makeEditDentist(){
+    new ModalEditDentist(this.id, this.purpose, this.description, this.doctor="dentist", this.name, this.urgency,this.status, this.visit ).buildingModalEditDentist()
+}
+function makeEditCardio(){
+    new ModalEditCardiologist(this.id, this.purpose, this.description, this.doctor="cardiologist", this.name, this.urgency, this.status, this.pressure, this.mass, this.cardio, this.age,).buildingModalEditCardiologist()
+}
+function makeEditTherapist(){
+    new ModalEditTherapist(this.id, this.purpose, this.description, this.doctor="therapist", this.name, this.urgency, this.status, this.age,).buildingModalEditTherapist()
+}
 
     }
     buildingModalEdit(){
@@ -189,7 +196,7 @@ class ModalEdit{
 
 class ModalEditCardiologist extends ModalEdit{
     constructor(id, purpose, description, doctor, name, urgency,status, pressure = 'null', mass = 'null', cardio = 'null', age = 'null', ){
-        super(id, purpose, description, doctor, name, urgency);
+        super(id, purpose, description, doctor, name, urgency, status);
         this.pressure = pressure;
         this.mass = mass;
         this.cardio = cardio;
@@ -212,6 +219,7 @@ class ModalEditDentist extends ModalEdit {
     buildingModalEditDentist(){
         super.buildingModalEdit()
         const arrayDentistOptions = [['visit last date', this.visit]]
+        console.log(arrayDentistOptions[1])
         this.createInputEditModal(arrayDentistOptions,this.modalEditBody)
 
     }
@@ -220,13 +228,16 @@ class ModalEditDentist extends ModalEdit {
 
 }
 class ModalEditTherapist extends ModalEdit {
-    constructor(id, purpose, description, doctor, name, urgency,status, age,){
-        super(id, purpose, description, doctor, name, urgency,age = 'null',);
+
+    constructor(id, purpose, description, doctor, name, urgency,status, age = 'null'){
+        super(id, purpose, description, doctor, name, urgency,status);
         this.age = age;
+        console.log(this.age)
     }
     buildingModalEditTherapist(){
         super.buildingModalEdit()
         const arrayTherapistOptions = [['age', this.age]]
+        console.log(arrayTherapistOptions)
         this.createInputEditModal(arrayTherapistOptions,this.modalEditBody)
     }
 
@@ -262,7 +273,7 @@ const createInputEditModal = (arrayOptions, inputWrapper) => {
       `)
 
             inputWrapper.append(clientHealthyItem)
-            inputWrapper.insertAdjacentHTML('beforeend', `<div>Please, enter ${field[0]}</div>`)
+
 
         } else {const clientHealthyItem = document.createElement("div")
             clientHealthyItem.classList.add('input-group', 'mb-3')
@@ -273,7 +284,7 @@ const createInputEditModal = (arrayOptions, inputWrapper) => {
       `)
 
             inputWrapper.append(clientHealthyItem)
-            inputWrapper.insertAdjacentHTML('beforeend', `<div>Please, enter ${field[0]}</div>`)
+
         }
 
     })
