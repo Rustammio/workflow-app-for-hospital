@@ -145,30 +145,21 @@ class ModalEdit{
 
             switch (el.target.value) {
                 case "dentist":
-                    makeEditDentist()
-                    // new ModalEditDentist(this.id, this.purpose, this.description, this.doctor="dentist", this.name, this.urgency,this.status, this.visit ).buildingModalEditDentist()
+
+                    new ModalEditDentist(this.id, this.purpose, this.description, this.doctor="dentist", this.name, this.urgency,this.status, this.visit ).buildingModalEditDentist()
                     break;
                 case "cardiologist":
-                    makeEditCardio()
-                    // new ModalEditCardiologist(this.id, this.purpose, this.description, this.doctor="cardiologist", this.name, this.urgency, this.status, this.pressure, this.mass, this.cardio, this.age,).buildingModalEditCardiologist()
+
+                    new ModalEditCardiologist(this.id, this.purpose, this.description, this.doctor="cardiologist", this.name, this.urgency, this.status, this.pressure, this.mass, this.cardio, this.age,).buildingModalEditCardiologist()
                     break;
                 case "therapist":
-                    makeEditTherapist()
-                    // new ModalEditTherapist(this.id, this.purpose, this.description, this.doctor="therapist", this.name, this.urgency, this.status, this.age,).buildingModalEditTherapist()
+
+                    new ModalEditTherapist(this.id, this.purpose, this.description, this.doctor="therapist", this.name, this.urgency, this.status, this.age,).buildingModalEditTherapist()
                     break;
                 }
         })
 
 
-function makeEditDentist(){
-    new ModalEditDentist(this.id, this.purpose, this.description, this.doctor="dentist", this.name, this.urgency,this.status, this.visit ).buildingModalEditDentist()
-}
-function makeEditCardio(){
-    new ModalEditCardiologist(this.id, this.purpose, this.description, this.doctor="cardiologist", this.name, this.urgency, this.status, this.pressure, this.mass, this.cardio, this.age,).buildingModalEditCardiologist()
-}
-function makeEditTherapist(){
-    new ModalEditTherapist(this.id, this.purpose, this.description, this.doctor="therapist", this.name, this.urgency, this.status, this.age,).buildingModalEditTherapist()
-}
 
     }
     buildingModalEdit(){
