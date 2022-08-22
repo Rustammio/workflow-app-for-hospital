@@ -118,6 +118,8 @@ class ModalEdit{
         this.putEdit = put;
         this.modalEditBody = document.querySelector('.modal-edit-body');
         this.modalEditBody.innerHTML = '';
+        this.modalEditBody.classList.remove( 'was-validated');
+
         this.modalEditFooter = document.querySelector('.modal-edit-footer');
         this.modalEditFooter.innerHTML=
             `<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">CLOSE</button>
