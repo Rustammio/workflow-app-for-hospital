@@ -18,6 +18,6 @@ export const createdButton = () => {
         //     clearMod.innerHTML = ""
         // }
 
-      
+
     })
 }

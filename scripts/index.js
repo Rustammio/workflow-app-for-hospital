@@ -26,7 +26,11 @@ window.addEventListener('load', () => {
         console.log('works')
     }
 });
-
+const logP = document.querySelector('.logP');
+const closeM = document.querySelector('.closeM')
+closeM.addEventListener('click',()=>{
+    logP.classList.remove('was-validated');
+})
 // (() => {
 //
 //     const forms = document.querySelectorAll('.needs-validation')

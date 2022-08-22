@@ -270,7 +270,7 @@
                             aria-label="Close"
                     ></button>
                 </div>
-                    <div class="modal-body">
+                    <form class="modal-body logP needs-validation" novalidate>
                         <div class="input-group input-group-sm mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
                             <input
@@ -278,6 +278,8 @@
                                     class="form-control emailInp"
                                     aria-label="Sizing example input"
                                     aria-describedby="inputGroup-sizing-sm"
+                                    required
+                                    id="validationEmail"
                             />
                         </div>
                         <div class="input-group input-group-sm mb-3">
@@ -287,19 +289,21 @@
                                     class="form-control passwordInp"
                                     aria-label="Sizing example input"
                                     aria-describedby="inputGroup-sizing-sm"
+                                    required
+                                    id="validationPass"
                             />
                         </div>
 
-                    </div>
+                    </form>
                 <div class="modal-footer">
                     <button
                             type="button"
-                            class="btn btn-secondary"
+                            class="btn btn-secondary closeM"
                             data-bs-dismiss="modal"
                     >
                         Close
                     </button>
-                    <button type="button" data-bs-dismiss="modal" class="btn btn-light sign">
+                    <button type="button"  class="btn btn-light sign">
                         Sign in
                     </button>
                 </div>
