@@ -4,9 +4,10 @@ export const clearForm = () => {
     const inputList = form.querySelectorAll('input')
     const selectList = form.querySelectorAll("select")
 
-    inputList.forEach(input => {
-        input.value = ''
-    })
+    form.innerHTML = ""
+    // inputList.forEach(input => {
+    //     input.value = ''
+    // })
     
     selectList.forEach(select => {
        

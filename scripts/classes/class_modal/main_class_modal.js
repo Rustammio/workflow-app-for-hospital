@@ -36,11 +36,11 @@ export default class Modal {
     this.modalFooter.classList.add("modal-footer")
 
     this.buttonAccept.setAttribute("type", "button")
-    this.buttonAccept.classList.add("btn", "btn-outline-light", "back", "btn-go-out")
+    this.buttonAccept.classList.add("btn", "btn-outline-light", "back", "btn-go-out", "accept_btn")
     this.buttonAccept.setAttribute("data-bs-target", `#Modal${this.idButton}`)
-    this.buttonAccept.setAttribute("data-bs-toggle", "modal")
+    // this.buttonAccept.setAttribute("data-bs-toggle", "modal")
     this.buttonAccept.innerText = `${this.Accept}`
-    this.buttonAccept.setAttribute("data-bs-toggle", "modal")
+    // this.buttonAccept.setAttribute("data-bs-toggle", "modal")
     // this.buttonAccept.setAttribute("data-bs-target", `#Modal${this.id}`)
     this.buttonCancel.setAttribute("type", "button")
     this.buttonCancel.setAttribute("data-bs-dismiss", "modal")

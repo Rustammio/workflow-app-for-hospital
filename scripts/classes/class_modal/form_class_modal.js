@@ -4,7 +4,7 @@ export default class CreateModal extends Modal {
   constructor(idButton, title, Accept, Cancel) {
     super(idButton, title, Accept, Cancel)
     this.selectDoctors = document.createElement("div")
-    this.clientHealthy = document.createElement("div")
+    this.clientHealthy = document.createElement("form")
 
   }
 
@@ -12,6 +12,8 @@ export default class CreateModal extends Modal {
     super.createElements(container)
     this.modalElement.classList.add("modal_form")
     this.modalBody.classList.add("create_form")
+    this.clientHealthy.classList.add("needs-validation")
+    this.clientHealthy.remove( 'was-validated');
 
     this.selectDoctors.insertAdjacentHTML("afterbegin", `
         <select class="form-select  select_doctor form-select select_form" aria-label=".form-select-lg" size="1">
@@ -45,11 +47,12 @@ export default class CreateModal extends Modal {
   basicModalInstance(arrayHealthyOptions) {
 
     this.clientHealthy.classList.add("client-healthy")
+    this.clientHealthy.setAttribute("novalidate", "true")
 
     this.createInput(arrayHealthyOptions)
 
     this.clientHealthy.insertAdjacentHTML("beforeend", `
-     <select class="form-select form-select select_form" aria-label=".form-select-sm urgen">
+     <select class="form-select form-select select_form" aria-label=".form-select-sm urgen" required>
      <option selected>urgency</option>
      <option value="High">High</option>
      <option value="Normal">Normal</option>
