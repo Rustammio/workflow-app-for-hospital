@@ -1,12 +1,10 @@
 import { clearForm } from "../functions/util/clear_form.js"
 import createCard from "../functions/util/create_card.js"
+import {testModal} from "../classes/class_modal/form_class_modal.js"
 import {cardsManage} from "./get_cards.js"
 
-const form = document.querySelector('.client-healthy')
-
+const form = document.querySelector(".create_form")
 export const createReqestModal = (requestObject) => {
-
-
   const token = localStorage.getItem("token")
   fetch("https://ajax.test-danit.com/api/v2/cards", {
     method: 'POST',
@@ -27,12 +25,15 @@ export const createReqestModal = (requestObject) => {
     })
     .then(response => {
 
+      testModal.exitModal()
+    
+
       const dataItem = JSON.parse(localStorage.getItem("data"))
       dataItem.push(response)
       localStorage.setItem("data", JSON.stringify(dataItem))
-      createCard(response)
+
       
-      clearForm()
+      cardsManage()
       
       return response
     }).catch(err => {

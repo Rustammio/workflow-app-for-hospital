@@ -10,14 +10,7 @@ export const createdButton = () => {
     buttonCreate.innerText = "Create card";
     buttonCreate.addEventListener("click", () => {
         formModal
-        // const selectModal = document.querySelector(".select_doctor")
-        // selectModal.options[0].selected = true;
-
-        // const clearMod = document.querySelector(".client-healthy")
-        // if (clearMod !== null) {
-        //     clearMod.innerHTML = ""
-        // }
-
+       
       
     })
 }

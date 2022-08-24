@@ -1,10 +1,12 @@
+import { getDataForm } from "../../functions/modal/get_data_form.js"
 import Modal from "./main_class_modal.js"
 
 export default class CreateModal extends Modal {
-  constructor(idButton, title, Accept, Cancel) {
+  constructor(idButton, title, Accept, Cancel, submitAction) {
     super(idButton, title, Accept, Cancel)
-    this.selectDoctors = document.createElement("div")
+    this.selectDoctors = document.createElement("select")
     this.clientHealthy = document.createElement("form")
+    this.submitAction = submitAction    
 
   }
 
@@ -14,18 +16,22 @@ export default class CreateModal extends Modal {
     this.modalBody.classList.add("create_form")
     this.clientHealthy.classList.add("needs-validation")
     this.clientHealthy.remove( 'was-validated');
-
+    this.selectDoctors.classList.add("form-select", "select_doctor", "select_form")
+    this.selectDoctors.setAttribute("aria-label", "form-select-lg")
+    this.selectDoctors.setAttribute("size", "1")
+    this.selectDoctors.setAttribute("required", "")
     this.selectDoctors.insertAdjacentHTML("afterbegin", `
-        <select class="form-select  select_doctor form-select select_form" aria-label=".form-select-lg" size="1">
-        <option selected >select doctor</option>
+      
+        <option selected disabled value="">select doctor</option>
         <option value="cardiologist">Cardiologist</option>
         <option value="dentist">Dentist</option>
         <option value="therapist">Therapist</option>
-      </select>  
+   
         `)
 
     this.buttonAccept.classList.add("submit")
-    this.buttonCancel.classList.add('exit_button')
+    this.buttonAccept.addEventListener('click', this.submitAction.bind(this));
+    this.buttonCancel.addEventListener('click', this.exitModal.bind(this));
 
     this.modalBody.append(this.selectDoctors)
   }
@@ -38,6 +44,7 @@ export default class CreateModal extends Modal {
       clientHealthyItem.insertAdjacentHTML('beforeend', `
         <input type="text" class="form-control" placeholder=${field} aria-label=${field} aria-describedby="basic-addon2" required>
         <span class="input-group-text" id="basic-addon2">${field}</span>
+        
         `)
 
       this.clientHealthy.append(clientHealthyItem)
@@ -46,18 +53,21 @@ export default class CreateModal extends Modal {
 
   basicModalInstance(arrayHealthyOptions) {
 
-    this.clientHealthy.classList.add("client-healthy")
-    this.clientHealthy.setAttribute("novalidate", "true")
+    this.clientHealthy.classList.add("client-healthy") 
+    this.clientHealthy.setAttribute("novalidate", "") 
 
     this.createInput(arrayHealthyOptions)
 
     this.clientHealthy.insertAdjacentHTML("beforeend", `
-     <select class="form-select form-select select_form" aria-label=".form-select-sm urgen" required>
-     <option selected>urgency</option>
+     <select class="form-select select_form select_urgency" aria-label="form-select-sm urgen" required>
+     <option selected disabled value="">urgency</option>
      <option value="High">High</option>
      <option value="Normal">Normal</option>
      <option value="Low">Low</option>
      </select> 
+     <div class="invalid-feedback">
+     Please choose an urgency.
+   </div>
      `)
 
     this.modalBody.append(this.clientHealthy)
@@ -80,6 +90,12 @@ export default class CreateModal extends Modal {
     this.createInput(therapistArray)
   }
 
+ exitModal(){
+  this.selectDoctors.options[0].selected = true;
+  this.clientHealthy.innerHTML = "";
+  this.modalBody.classList.remove('was-validated');
+ }
+
   clearForm() {
 
     this.clientHealthy.innerHTML = ""
@@ -88,7 +104,7 @@ export default class CreateModal extends Modal {
 }
 
 const container = document.querySelector(".modal_form_wrapper")
-const testModal = new CreateModal("2", "Create form", "Create", "Exit")
+const testModal = new CreateModal("2", "Create form", "Create", "Exit", getDataForm)
 const formModal = testModal.createElements(container)
 
 export { formModal, testModal }

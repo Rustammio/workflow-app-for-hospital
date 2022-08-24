@@ -9,7 +9,7 @@ export default class Modal {
     this.modalElement = document.createElement('div');
     this.modalDialog = document.createElement('div');
     this.modalContent = document.createElement('div');
-    this.modalBody = document.createElement('div');
+    this.modalBody = document.createElement('form');
     this.modalFooter = document.createElement('div');
     this.buttonAccept = document.createElement('button')
     this.buttonCancel = document.createElement('button');
@@ -29,19 +29,19 @@ export default class Modal {
     this.modalContent.insertAdjacentHTML('afterbegin', `
       <div class="modal-header">
         <h5 class="modal-title" id="ModalLabel${this.idButton}">${this.title}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close close_modal" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>`)
 
-    this.modalBody.classList.add("modal-body")
+    this.modalBody.classList.add("modal-body","needs-validation")
+    this.modalBody.remove( 'was-validated');
     this.modalFooter.classList.add("modal-footer")
 
     this.buttonAccept.setAttribute("type", "button")
-    this.buttonAccept.classList.add("btn", "btn-outline-light", "back", "btn-go-out", "accept_btn")
+    this.buttonAccept.classList.add("btn", "btn-outline-light", "back", "btn-go-out")
     this.buttonAccept.setAttribute("data-bs-target", `#Modal${this.idButton}`)
-    // this.buttonAccept.setAttribute("data-bs-toggle", "modal")
+    this.buttonAccept.setAttribute("data-bs-dismiss", "modal")
     this.buttonAccept.innerText = `${this.Accept}`
-    // this.buttonAccept.setAttribute("data-bs-toggle", "modal")
-    // this.buttonAccept.setAttribute("data-bs-target", `#Modal${this.id}`)
+ 
     this.buttonCancel.setAttribute("type", "button")
     this.buttonCancel.setAttribute("data-bs-dismiss", "modal")
 
