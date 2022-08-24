@@ -2,6 +2,9 @@ import EmptyInput from "../../err/emptyInput.js"
 import ChooseSelect from "../../err/chooseSelect.js"
 import CreateModal from "../../classes/class_modal/form_class_modal.js"
 import { createReqestModal } from "../../api/post_form.js"
+import {testModal} from"../../classes/class_modal/form_class_modal.js"
+import  {cardsManage} from "../../api/get_cards.js"
+
 const containerForm = document.querySelector('.card-container')
 export const getDataForm = (event) => {
     let inpToRequest = {}
@@ -67,10 +70,22 @@ export const getDataForm = (event) => {
                 "afterbegin",
                 `
             <div class="alert alert-danger" role="alert">
+            
             ${e.name}<br/> <a href"#" class= "tryAgain"  data-bs-toggle="modal"
             data-bs-target="#Modal2">All input or select must be valid</a>
+            <a href = "#" class = "close_alert tryAgain">Cancel</a>
             </div>`
             );
+            
+                
+                const alert = document.querySelector(".close_alert")
+                alert.addEventListener("click", ()=>{
+                    containerForm.innerHTML =""
+                    testModal.exitModal()
+                    cardsManage()
+                })
+                
+            
         }
     // })
 }
